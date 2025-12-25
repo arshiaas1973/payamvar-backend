@@ -1,0 +1,22 @@
+services:
+  main-nosql:
+    container_name: main-nosql
+    image: scylladb/scylla
+    ports:
+      - "9042:9042"
+      - "9160:9160"
+    volumes:
+      - scylla-data:/var/lib/scylla
+    networks:
+      - backend-network
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  scylla-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/scylla-data
+      o: bind

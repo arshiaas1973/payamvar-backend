@@ -1,10 +1,11 @@
 module github.com/arshiaas1973/payamvar-backend
 
-go 1.25.0
+go 1.25.2
 
 require (
 	ariga.io/atlas-provider-gorm v0.6.0 // indirect
 	github.com/andybalholm/brotli v1.2.0 // indirect
+	github.com/arshiaas1973/payamvar-backend/orm v0.0.0-20251011150008-bdb68a61483e // indirect
 	github.com/gofiber/fiber/v3 v3.0.0-rc.2 // indirect
 	github.com/gofiber/schema v1.6.0 // indirect
 	github.com/gofiber/utils/v2 v2.0.0-rc.1 // indirect
