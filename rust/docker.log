@@ -1,0 +1,813 @@
+docker compose up
+[+] Running 16/16
+ ✔ main-sql Pulled                                                                                                                                                        153.7s 
+[+] Running 2/2
+ ✔ Container main-sql    Recreated                                                                                                                                          3.8s 
+ ✔ Container main-nosql  Recreated                                                                                                                                          3.3s 
+Attaching to main-nosql, main-sql
+main-sql  | The files belonging to this database system will be owned by user "postgres".
+main-sql  | This user must also own the server process.
+main-sql  | 
+main-sql  | The database cluster will be initialized with locale "en_US.utf8".
+main-sql  | The default database encoding has accordingly been set to "UTF8".
+main-sql  | The default text search configuration will be set to "english".
+main-sql  | 
+main-sql  | Data page checksums are disabled.
+main-sql  | 
+main-sql  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+main-sql  | creating subdirectories ... ok
+main-sql  | selecting dynamic shared memory implementation ... posix
+main-sql  | selecting default max_connections ... 100
+main-sql  | selecting default shared_buffers ... 128MB
+main-sql  | selecting default time zone ... Etc/UTC
+main-sql  | creating configuration files ... ok
+main-nosql  | running: (['/opt/scylladb/scripts/scylla_dev_mode_setup', '--developer-mode', '1'],)
+main-sql    | running bootstrap script ... ok
+main-sql    | performing post-bootstrap initialization ... ok
+main-nosql  | running: (['/opt/scylladb/scripts/scylla_io_setup'],)
+main-nosql  | running: (['mkdir', '-p', '/var/lib/scylla/.cassandra'],)
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-housekeeping.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-housekeeping.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-node-exporter.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-node-exporter.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-server.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,087 INFO Included extra file "/etc/supervisord.conf.d/scylla-server.conf" during parsing
+main-nosql  | 2026-01-02 17:04:24,136 INFO RPC interface 'supervisor' initialized
+main-nosql  | 2026-01-02 17:04:24,136 INFO RPC interface 'supervisor' initialized
+main-nosql  | 2026-01-02 17:04:24,137 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+main-nosql  | 2026-01-02 17:04:24,137 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+main-nosql  | 2026-01-02 17:04:24,140 INFO supervisord started with pid 26
+main-nosql  | 2026-01-02 17:04:24,140 INFO supervisord started with pid 26
+main-nosql  | 2026-01-02 17:04:25,159 INFO spawned: 'scylla' with pid 27
+main-nosql  | 2026-01-02 17:04:25,159 INFO spawned: 'scylla' with pid 27
+main-nosql  | 2026-01-02 17:04:25,175 INFO spawned: 'scylla-housekeeping' with pid 28
+main-nosql  | 2026-01-02 17:04:25,175 INFO spawned: 'scylla-housekeeping' with pid 28
+main-nosql  | 2026-01-02 17:04:25,191 INFO spawned: 'scylla-node-exporter' with pid 29
+main-nosql  | 2026-01-02 17:04:25,191 INFO spawned: 'scylla-node-exporter' with pid 29
+main-nosql  | time=2026-01-02T17:04:25.373Z level=INFO source=node_exporter.go:216 msg="Starting node_exporter" version="(version=1.10.2, branch=HEAD, revision=654f19dee6a0c41de78a8d6d870e8c742cdb43b9)"
+main-nosql  | time=2026-01-02T17:04:25.375Z level=INFO source=node_exporter.go:217 msg="Build context" build_context="(go=go1.25.3, platform=linux/amd64, user=root@b29b4019149a, date=20251025-20:05:32, tags=unknown)"
+main-nosql  | time=2026-01-02T17:04:25.380Z level=INFO source=diskstats_common.go:110 msg="Parsed flag --collector.diskstats.device-exclude" collector=diskstats flag=^(z?ram|loop|fd|(h|s|v|xv)d[a-z]|nvme\d+n\d+p)\d+$
+main-nosql  | time=2026-01-02T17:04:25.381Z level=ERROR source=diskstats_linux.go:256 msg="Failed to open directory, disabling udev device properties" collector=diskstats path=/run/udev/data
+main-nosql  | time=2026-01-02T17:04:25.391Z level=INFO source=filesystem_common.go:265 msg="Parsed flag --collector.filesystem.mount-points-exclude" collector=filesystem flag=^/(dev|proc|run/credentials/.+|sys|var/lib/docker/.+|var/lib/containers/storage/.+)($|/)
+main-nosql  | time=2026-01-02T17:04:25.393Z level=INFO source=filesystem_common.go:294 msg="Parsed flag --collector.filesystem.fs-types-exclude" collector=filesystem flag=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|erofs|sysfs|tracefs)$
+main-nosql  | time=2026-01-02T17:04:25.395Z level=INFO source=node_exporter.go:135 msg="Enabled collectors"
+main-nosql  | time=2026-01-02T17:04:25.396Z level=INFO source=node_exporter.go:141 msg=arp
+main-nosql  | time=2026-01-02T17:04:25.396Z level=INFO source=node_exporter.go:141 msg=bonding
+main-nosql  | time=2026-01-02T17:04:25.396Z level=INFO source=node_exporter.go:141 msg=conntrack
+main-nosql  | time=2026-01-02T17:04:25.396Z level=INFO source=node_exporter.go:141 msg=cpu
+main-nosql  | time=2026-01-02T17:04:25.396Z level=INFO source=node_exporter.go:141 msg=cpufreq
+main-sql    | syncing data to disk ... ok
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=diskstats
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=dmi
+main-sql    | 
+main-sql    | 
+main-sql    | Success. You can now start the database server using:
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=edac
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=entropy
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=filefd
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=filesystem
+main-sql    | 
+main-sql    |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=interrupts
+main-sql    | 
+main-sql    | initdb: warning: enabling "trust" authentication for local connections
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=loadavg
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=mdadm
+
+main-sql    | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=meminfo
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=netclass
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=netdev
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=netstat
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=nvme
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=os
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=pressure
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=schedstat
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=selinux
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=sockstat
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=softnet
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=stat
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=textfile
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=time
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=timex
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=uname
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=vmstat
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=watchdog
+main-nosql  | time=2026-01-02T17:04:25.397Z level=INFO source=node_exporter.go:141 msg=xfs
+main-nosql  | time=2026-01-02T17:04:25.406Z level=INFO source=tls_config.go:346 msg="Listening on" address=[::]:9100
+main-nosql  | time=2026-01-02T17:04:25.406Z level=INFO source=tls_config.go:349 msg="TLS is disabled." http2=false address=[::]:9100
+main-nosql  | WARN   init - Need to leave extra IOCBs in reserve for tools because the io_uring reactor backend is not available. Tools will fall-back to the epoll reactor backend, which requires more IOCBs to function.
+main-nosql  | Scylla version 2025.4.0-0.20251217.fe8b2f109278 with build-id 25d10470ab0306b0720b34ddbcee6db6684f6282 starting ...
+main-nosql  | command used: "/usr/bin/scylla --log-to-syslog 0 --log-to-stdout 1 --network-stack posix --developer-mode=1 --overprovisioned --listen-address 172.18.0.2 --rpc-address 172.18.0.2 --seed-provider-parameters seeds=172.18.0.2 --alternator-address 172.18.0.2 --blocked-reactor-notify-ms 999999999"
+main-nosql  | pid: 27
+main-nosql  | parsed command line options: [log-to-syslog, (positional) 0, log-to-stdout, (positional) 1, network-stack, (positional) posix, developer-mode: 1, overprovisioned, listen-address: 172.18.0.2, rpc-address: 172.18.0.2, seed-provider-parameters: seeds=172.18.0.2, alternator-address: 172.18.0.2, blocked-reactor-notify-ms, (positional) 999999999]
+main-nosql  | INFO  2026-01-02 17:04:25,863 seastar - Reactor backend: linux-aio
+main-nosql  | WARN  2026-01-02 17:04:25,913 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-sql    | waiting for server to start....2026-01-02 17:04:25.968 UTC [48] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+main-nosql  | INFO  2026-01-02 17:04:25,967 [shard 0:main] seastar - IO queue was unable to find a suitable maximum request length, the search was cut-off early at: 16MB
+main-nosql  | INFO  2026-01-02 17:04:25,967 [shard 0:main] seastar - IO queue was unable to find a suitable maximum request length, the search was cut-off early at: 16MB
+main-nosql  | WARN  2026-01-02 17:04:25,992 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:04:26,045 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:04:26,099 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:04:26,112 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:04:26,157 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:04:26,158 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | 2026-01-02 17:04:26,159 INFO success: scylla entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:04:26,159 INFO success: scylla entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | WARN  2026-01-02 17:04:26,168 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | 2026-01-02 17:04:26,174 INFO success: scylla-housekeeping entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:04:26,174 INFO success: scylla-housekeeping entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 0:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | 2026-01-02 17:04:26,241 INFO success: scylla-node-exporter entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:04:26,241 INFO success: scylla-node-exporter entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 3:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 2:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 4:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 6:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 1:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,240 [shard 5:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:04:26,241 [shard 7:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-sql    | .2026-01-02 17:04:26.997 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+main-nosql  | INFO  2026-01-02 17:04:27,175 [shard 0:main] init - installing SIGHUP handler
+main-sql    | 2026-01-02 17:04:27.238 UTC [51] LOG:  database system was shut down at 2026-01-02 17:04:18 UTC
+main-sql    | 2026-01-02 17:04:27.334 UTC [48] LOG:  database system is ready to accept connections
+main-sql    |  done
+main-sql    | server started
+main-nosql  | INFO  2026-01-02 17:04:27,620 [shard 0:main] init - Scylla version 2025.4.0-0.20251217.fe8b2f109278 with build-id 25d10470ab0306b0720b34ddbcee6db6684f6282 starting ...
+main-nosql  | 
+main-nosql  | WARN  2026-01-02 17:04:27,651 [shard 0:main] init - I/O Scheduler is not properly configured! This is a non-supported setup, and performance is expected to be unpredictably bad.
+main-nosql  |  Reason found: none of --io-properties and --io-properties-file are set.
+main-nosql  | To properly configure the I/O Scheduler, run the scylla_io_setup utility shipped with Scylla.
+main-nosql  | 
+main-nosql  | INFO  2026-01-02 17:04:27,652 [shard 0:main] init - starting feature service
+main-nosql  | INFO  2026-01-02 17:04:27,707 [shard 0:main] init - starting API server
+main-nosql  | INFO  2026-01-02 17:04:27,722 [shard 0:main] init - starting prometheus API server
+main-nosql  | INFO  2026-01-02 17:04:27,741 [shard 0:main] init - creating snitch
+main-nosql  | INFO  2026-01-02 17:04:27,755 [shard 0:main] init - starting tokens manager
+main-nosql  | INFO  2026-01-02 17:04:27,762 [shard 0:main] init - starting effective_replication_map factory
+main-nosql  | INFO  2026-01-02 17:04:27,772 [shard 0:main] init - starting migration manager notifier
+main-nosql  | INFO  2026-01-02 17:04:27,782 [shard 0:main] init - creating and verifying directories
+main-sql    | CREATE DATABASE
+main-sql    | 
+main-sql    | 
+main-sql    | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+main-sql    | 
+main-sql    | 2026-01-02 17:04:29.717 UTC [48] LOG:  received fast shutdown request
+main-sql    | waiting for server to shut down....2026-01-02 17:04:29.778 UTC [48] LOG:  aborting any active transactions
+main-sql    | 2026-01-02 17:04:29.796 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+main-sql    | 2026-01-02 17:04:29.812 UTC [49] LOG:  shutting down
+main-sql    | 2026-01-02 17:04:29.861 UTC [49] LOG:  checkpoint starting: shutdown immediate
+main-nosql  | INFO  2026-01-02 17:04:31,258 [shard 0:main] init - starting task manager
+main-nosql  | INFO  2026-01-02 17:04:31,329 [shard 0:main] init - starting disk space monitor
+main-nosql  | INFO  2026-01-02 17:04:31,330 [shard 0:main] init - starting compaction_manager
+main-nosql  | INFO  2026-01-02 17:04:31,331 [shard 0:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,336 [shard 2:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,337 [shard 1:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,337 [shard 6:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,338 [shard 3:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,339 [shard 4:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,339 [shard 5:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,342 [shard 7:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:04:31,352 [shard 0:main] compaction_manager - Set unlimited compaction bandwidth
+main-nosql  | INFO  2026-01-02 17:04:31,352 [shard 0:main] init - starting storage manager
+main-nosql  | INFO  2026-01-02 17:04:31,358 [shard 0:main] init - starting service level controller
+main-nosql  | INFO  2026-01-02 17:04:31,422 [shard 0:main] init - starting lang manager
+main-nosql  | INFO  2026-01-02 17:04:31,433 [shard 0:main] init - starting database
+main-nosql  | INFO  2026-01-02 17:04:31,532 [shard 0:main] init - starting per-shard database core
+main-nosql  | INFO  2026-01-02 17:04:31,540 [shard 1:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,546 [shard 1:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,540 [shard 6:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,540 [shard 4:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,547 [shard 4:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,548 [shard 7:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,548 [shard 7:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,550 [shard 2:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,550 [shard 2:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,540 [shard 3:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,540 [shard 0:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,552 [shard 3:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,553 [shard 0:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,547 [shard 6:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,561 [shard 5:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:04:31,561 [shard 5:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:04:31,604 [shard 0:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,604 [shard 6:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,604 [shard 1:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,605 [shard 5:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,605 [shard 3:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,605 [shard 7:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,608 [shard 2:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,608 [shard 4:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:04:31,608 [shard 0:main] init - starting storage proxy
+main-nosql  | INFO  2026-01-02 17:04:32,454 [shard 0:main] init - starting a vector store service
+main-nosql  | INFO  2026-01-02 17:04:32,454 [shard 0:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,454 [shard 0:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,454 [shard 1:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,455 [shard 1:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,455 [shard 2:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,455 [shard 2:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,455 [shard 7:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,455 [shard 7:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,456 [shard 5:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,456 [shard 5:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,458 [shard 3:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,458 [shard 3:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,458 [shard 4:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,458 [shard 4:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,459 [shard 6:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,459 [shard 6:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:04:32,463 [shard 0:main] init - starting query processor
+main-nosql  | INFO  2026-01-02 17:04:32,514 [shard 0:main] init - starting lifecycle notifier
+main-nosql  | INFO  2026-01-02 17:04:32,518 [shard 0:main] init - creating tracing
+main-nosql  | INFO  2026-01-02 17:04:32,528 [shard 0:main] audit - Audit is disabled
+main-nosql  | INFO  2026-01-02 17:04:32,531 [shard 0:main] init - Scylla API server listening on 127.0.0.1:10000 ...
+main-nosql  | INFO  2026-01-02 17:04:32,538 [shard 0:main] init - starting system keyspace
+main-nosql  | INFO  2026-01-02 17:04:32,540 [shard 0:main] init - loading system sstables
+main-nosql  | /opt/scylladb/scripts/libexec/scylla-housekeeping:21: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+main-nosql  |   from pkg_resources import parse_version
+main-nosql  | Traceback (most recent call last):
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 208, in <module>
+main-nosql  |     args.func(args)
+main-nosql  |     ~~~~~~~~~^^^^^^
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 134, in check_version
+main-nosql  |     current_version = sanitize_version(get_api('/storage_service/scylla_release_version'))
+main-nosql  |                                        ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 80, in get_api
+main-nosql  |     return get_json_from_url("http://" + api_address + path)
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 75, in get_json_from_url
+main-nosql  |     raise RuntimeError(f'Failed to get "{path}" due to the following error: {retval}')
+main-nosql  | RuntimeError: Failed to get "http://localhost:10000/storage_service/scylla_release_version" due to the following error: HTTP Error 404: Not Found
+Gracefully Stopping... press Ctrl+C again to force
+
+ Container main-nosql  Stopping
+ Container main-sql  Stopping
+main-sql    | pg_ctl: server does not shut down
+main-sql    | ........................................................... failed
+main-nosql  | 2026-01-02 17:05:34,670 WARN received SIGTERM indicating exit request
+main-nosql  | 2026-01-02 17:05:34,670 WARN received SIGTERM indicating exit request
+main-nosql  | 2026-01-02 17:05:34,671 INFO waiting for scylla, scylla-housekeeping, scylla-node-exporter to die
+main-nosql  | 2026-01-02 17:05:34,671 INFO waiting for scylla, scylla-housekeeping, scylla-node-exporter to die
+main-nosql  | 2026-01-02 17:05:34,676 WARN stopped: scylla-node-exporter (terminated by SIGTERM)
+main-nosql  | 2026-01-02 17:05:34,676 WARN stopped: scylla-node-exporter (terminated by SIGTERM)
+main-nosql  | 2026-01-02 17:05:35,679 WARN stopped: scylla-housekeeping (terminated by SIGTERM)
+main-nosql  | 2026-01-02 17:05:35,679 WARN stopped: scylla-housekeeping (terminated by SIGTERM)
+main-nosql  | 2026-01-02 17:05:37,681 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:37,681 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:40,684 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:40,684 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:43,688 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:43,688 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:46,691 INFO waiting for scylla to die
+main-nosql  | 2026-01-02 17:05:46,691 INFO waiting for scylla to die
+ Container main-sql  Stopped
+main-sql exited with code 1
+ Container main-nosql  Stopped
+main-nosql exited with code 137
+
+scarywwolf at scaryarch in ~/Desktop/Projects/payamvar/backend/rust on main!
+± docker compose up
+Attaching to main-nosql, main-sql
+main-sql  | 
+main-sql  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+main-sql  | 
+main-sql  | 2026-01-02 17:05:59.838 UTC [1] LOG:  starting PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+main-sql  | 2026-01-02 17:05:59.838 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+main-sql  | 2026-01-02 17:05:59.838 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+main-nosql  | running: (['/opt/scylladb/scripts/scylla_dev_mode_setup', '--developer-mode', '1'],)
+main-sql    | 2026-01-02 17:06:00.616 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+main-nosql  | running: (['/opt/scylladb/scripts/scylla_io_setup'],)
+main-nosql  | running: (['mkdir', '-p', '/var/lib/scylla/.cassandra'],)
+main-sql    | 2026-01-02 17:06:01.782 UTC [29] LOG:  database system shutdown was interrupted; last known up at 2026-01-02 17:04:29 UTC
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-housekeeping.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-housekeeping.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-node-exporter.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-node-exporter.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-server.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,927 INFO Included extra file "/etc/supervisord.conf.d/scylla-server.conf" during parsing
+main-nosql  | 2026-01-02 17:06:01,934 INFO RPC interface 'supervisor' initialized
+main-nosql  | 2026-01-02 17:06:01,934 INFO RPC interface 'supervisor' initialized
+main-nosql  | 2026-01-02 17:06:01,934 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+main-nosql  | 2026-01-02 17:06:01,934 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+main-nosql  | 2026-01-02 17:06:01,934 INFO supervisord started with pid 27
+main-nosql  | 2026-01-02 17:06:01,934 INFO supervisord started with pid 27
+main-nosql  | 2026-01-02 17:06:02,937 INFO spawned: 'scylla' with pid 28
+main-nosql  | 2026-01-02 17:06:02,937 INFO spawned: 'scylla' with pid 28
+main-nosql  | 2026-01-02 17:06:02,948 INFO spawned: 'scylla-housekeeping' with pid 29
+main-nosql  | 2026-01-02 17:06:02,948 INFO spawned: 'scylla-housekeeping' with pid 29
+main-nosql  | 2026-01-02 17:06:02,961 INFO spawned: 'scylla-node-exporter' with pid 30
+main-nosql  | 2026-01-02 17:06:02,961 INFO spawned: 'scylla-node-exporter' with pid 30
+main-nosql  | time=2026-01-02T17:06:03.088Z level=INFO source=node_exporter.go:216 msg="Starting node_exporter" version="(version=1.10.2, branch=HEAD, revision=654f19dee6a0c41de78a8d6d870e8c742cdb43b9)"
+main-nosql  | time=2026-01-02T17:06:03.088Z level=INFO source=node_exporter.go:217 msg="Build context" build_context="(go=go1.25.3, platform=linux/amd64, user=root@b29b4019149a, date=20251025-20:05:32, tags=unknown)"
+main-nosql  | time=2026-01-02T17:06:03.095Z level=INFO source=diskstats_common.go:110 msg="Parsed flag --collector.diskstats.device-exclude" collector=diskstats flag=^(z?ram|loop|fd|(h|s|v|xv)d[a-z]|nvme\d+n\d+p)\d+$
+main-nosql  | time=2026-01-02T17:06:03.096Z level=ERROR source=diskstats_linux.go:256 msg="Failed to open directory, disabling udev device properties" collector=diskstats path=/run/udev/data
+main-nosql  | time=2026-01-02T17:06:03.097Z level=INFO source=filesystem_common.go:265 msg="Parsed flag --collector.filesystem.mount-points-exclude" collector=filesystem flag=^/(dev|proc|run/credentials/.+|sys|var/lib/docker/.+|var/lib/containers/storage/.+)($|/)
+main-nosql  | time=2026-01-02T17:06:03.097Z level=INFO source=filesystem_common.go:294 msg="Parsed flag --collector.filesystem.fs-types-exclude" collector=filesystem flag=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|erofs|sysfs|tracefs)$
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:135 msg="Enabled collectors"
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=arp
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=bonding
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=conntrack
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=cpu
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=cpufreq
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=diskstats
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=dmi
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=edac
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=entropy
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=filefd
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=filesystem
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=interrupts
+main-nosql  | time=2026-01-02T17:06:03.103Z level=INFO source=node_exporter.go:141 msg=loadavg
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=mdadm
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=meminfo
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=netclass
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=netdev
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=netstat
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=nvme
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=os
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=pressure
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=schedstat
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=selinux
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=sockstat
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=softnet
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=stat
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=textfile
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=time
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=timex
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=uname
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=vmstat
+main-nosql  | time=2026-01-02T17:06:03.104Z level=INFO source=node_exporter.go:141 msg=watchdog
+main-nosql  | time=2026-01-02T17:06:03.105Z level=INFO source=node_exporter.go:141 msg=xfs
+main-nosql  | time=2026-01-02T17:06:03.110Z level=INFO source=tls_config.go:346 msg="Listening on" address=[::]:9100
+main-nosql  | time=2026-01-02T17:06:03.110Z level=INFO source=tls_config.go:349 msg="TLS is disabled." http2=false address=[::]:9100
+main-nosql  | WARN   init - Need to leave extra IOCBs in reserve for tools because the io_uring reactor backend is not available. Tools will fall-back to the epoll reactor backend, which requires more IOCBs to function.
+main-nosql  | Scylla version 2025.4.0-0.20251217.fe8b2f109278 with build-id 25d10470ab0306b0720b34ddbcee6db6684f6282 starting ...
+main-nosql  | command used: "/usr/bin/scylla --log-to-syslog 0 --log-to-stdout 1 --network-stack posix --developer-mode=1 --overprovisioned --listen-address 172.18.0.3 --rpc-address 172.18.0.3 --seed-provider-parameters seeds=172.18.0.3 --alternator-address 172.18.0.3 --blocked-reactor-notify-ms 999999999"
+main-nosql  | pid: 28
+main-nosql  | parsed command line options: [log-to-syslog, (positional) 0, log-to-stdout, (positional) 1, network-stack, (positional) posix, developer-mode: 1, overprovisioned, listen-address: 172.18.0.3, rpc-address: 172.18.0.3, seed-provider-parameters: seeds=172.18.0.3, alternator-address: 172.18.0.3, blocked-reactor-notify-ms, (positional) 999999999]
+main-nosql  | INFO  2026-01-02 17:06:03,530 seastar - Reactor backend: linux-aio
+main-nosql  | WARN  2026-01-02 17:06:03,536 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | INFO  2026-01-02 17:06:03,546 [shard 0:main] seastar - IO queue was unable to find a suitable maximum request length, the search was cut-off early at: 16MB
+main-nosql  | INFO  2026-01-02 17:06:03,546 [shard 0:main] seastar - IO queue was unable to find a suitable maximum request length, the search was cut-off early at: 16MB
+main-nosql  | WARN  2026-01-02 17:06:03,576 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,591 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,598 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,604 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,609 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,618 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | WARN  2026-01-02 17:06:03,623 seastar - Creation of perf_event based stall detector failed: falling back to posix timer: std::system_error (error system:1, perf_event_open() failed: Operation not permitted)
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 0:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 2:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 1:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 3:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 4:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 7:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 5:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,640 [shard 6:main] seastar - updated: blocked-reactor-notify-ms=36000000000
+main-nosql  | INFO  2026-01-02 17:06:03,721 [shard 0:main] init - installing SIGHUP handler
+main-nosql  | INFO  2026-01-02 17:06:03,814 [shard 0:main] init - Scylla version 2025.4.0-0.20251217.fe8b2f109278 with build-id 25d10470ab0306b0720b34ddbcee6db6684f6282 starting ...
+main-nosql  | 
+main-nosql  | WARN  2026-01-02 17:06:03,816 [shard 0:main] init - I/O Scheduler is not properly configured! This is a non-supported setup, and performance is expected to be unpredictably bad.
+main-nosql  |  Reason found: none of --io-properties and --io-properties-file are set.
+main-nosql  | To properly configure the I/O Scheduler, run the scylla_io_setup utility shipped with Scylla.
+main-nosql  | 
+main-nosql  | INFO  2026-01-02 17:06:03,816 [shard 0:main] init - starting feature service
+main-nosql  | INFO  2026-01-02 17:06:03,823 [shard 0:main] init - starting API server
+main-nosql  | INFO  2026-01-02 17:06:03,825 [shard 0:main] init - starting prometheus API server
+main-nosql  | INFO  2026-01-02 17:06:03,826 [shard 0:main] init - creating snitch
+main-nosql  | INFO  2026-01-02 17:06:03,827 [shard 0:main] init - starting tokens manager
+main-nosql  | INFO  2026-01-02 17:06:03,827 [shard 0:main] init - starting effective_replication_map factory
+main-nosql  | INFO  2026-01-02 17:06:03,828 [shard 0:main] init - starting migration manager notifier
+main-nosql  | INFO  2026-01-02 17:06:03,829 [shard 0:main] init - creating and verifying directories
+main-nosql  | INFO  2026-01-02 17:06:04,282 [shard 0:main] init - starting task manager
+main-nosql  | 2026-01-02 17:06:04,283 INFO success: scylla entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:06:04,283 INFO success: scylla entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:06:04,284 INFO success: scylla-housekeeping entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:06:04,284 INFO success: scylla-housekeeping entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:06:04,284 INFO success: scylla-node-exporter entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | 2026-01-02 17:06:04,284 INFO success: scylla-node-exporter entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+main-nosql  | INFO  2026-01-02 17:06:04,395 [shard 0:main] init - starting disk space monitor
+main-nosql  | INFO  2026-01-02 17:06:04,395 [shard 0:main] init - starting compaction_manager
+main-nosql  | INFO  2026-01-02 17:06:04,396 [shard 0:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,397 [shard 1:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,397 [shard 5:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,397 [shard 3:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,398 [shard 4:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,398 [shard 2:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,399 [shard 6:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,399 [shard 7:main] task_manager - Registered module compaction
+main-nosql  | INFO  2026-01-02 17:06:04,400 [shard 0:main] compaction_manager - Set unlimited compaction bandwidth
+main-nosql  | INFO  2026-01-02 17:06:04,400 [shard 0:main] init - starting storage manager
+main-nosql  | INFO  2026-01-02 17:06:04,400 [shard 0:main] init - starting service level controller
+main-nosql  | INFO  2026-01-02 17:06:04,412 [shard 0:main] init - starting lang manager
+main-nosql  | INFO  2026-01-02 17:06:04,413 [shard 0:main] init - starting database
+main-nosql  | INFO  2026-01-02 17:06:04,430 [shard 0:main] init - starting per-shard database core
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 0:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 0:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 5:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 1:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 1:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 5:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 3:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 2:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 3:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 2:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 7:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 7:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,433 [shard 4:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,433 [shard 4:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,432 [shard 6:main] compaction_manager - Asked to enable
+main-nosql  | INFO  2026-01-02 17:06:04,433 [shard 6:main] compaction_manager - Enabled
+main-nosql  | INFO  2026-01-02 17:06:04,437 [shard 0:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,437 [shard 2:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,437 [shard 3:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,437 [shard 7:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,438 [shard 5:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,438 [shard 4:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,439 [shard 1:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,439 [shard 6:main] seastar - updated: blocked-reactor-notify-ms=999999999
+main-nosql  | INFO  2026-01-02 17:06:04,440 [shard 0:main] init - starting storage proxy
+main-nosql  | INFO  2026-01-02 17:06:04,585 [shard 0:main] init - starting a vector store service
+main-nosql  | INFO  2026-01-02 17:06:04,585 [shard 0:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,585 [shard 0:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 3:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 3:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 2:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 5:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 1:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 7:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 4:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 4:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 2:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 1:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 5:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 6:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 6:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 7:main] vector_store_client - Vector Store service URIs are empty, disabling Vector Store service
+main-nosql  | INFO  2026-01-02 17:06:04,586 [shard 0:main] init - starting query processor
+main-nosql  | INFO  2026-01-02 17:06:04,598 [shard 0:main] init - starting lifecycle notifier
+main-nosql  | INFO  2026-01-02 17:06:04,598 [shard 0:main] init - creating tracing
+main-nosql  | INFO  2026-01-02 17:06:04,599 [shard 0:main] audit - Audit is disabled
+main-nosql  | INFO  2026-01-02 17:06:04,600 [shard 0:main] init - Scylla API server listening on 127.0.0.1:10000 ...
+main-nosql  | INFO  2026-01-02 17:06:04,601 [shard 0:main] init - starting system keyspace
+main-nosql  | INFO  2026-01-02 17:06:04,602 [shard 0:main] init - loading system sstables
+main-nosql  | /opt/scylladb/scripts/libexec/scylla-housekeeping:21: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+main-nosql  |   from pkg_resources import parse_version
+main-nosql  | Traceback (most recent call last):
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 208, in <module>
+main-nosql  |     args.func(args)
+main-nosql  |     ~~~~~~~~~^^^^^^
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 134, in check_version
+main-nosql  |     current_version = sanitize_version(get_api('/storage_service/scylla_release_version'))
+main-nosql  |                                        ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 80, in get_api
+main-nosql  |     return get_json_from_url("http://" + api_address + path)
+main-nosql  |   File "/opt/scylladb/scripts/libexec/scylla-housekeeping", line 75, in get_json_from_url
+main-nosql  |     raise RuntimeError(f'Failed to get "{path}" due to the following error: {retval}')
+main-nosql  | RuntimeError: Failed to get "http://localhost:10000/storage_service/scylla_release_version" due to the following error: HTTP Error 404: Not Found
+main-sql    | 2026-01-02 17:06:11.946 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 10.15 s, current path: ./base/4/6237
+main-sql    | 2026-01-02 17:06:21.993 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 20.19 s, current path: ./base/4/6117
+main-sql    | 2026-01-02 17:06:26.685 UTC [30] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:26.686 UTC [31] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:28.155 UTC [32] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:28.157 UTC [33] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:29.013 UTC [34] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:29.015 UTC [35] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:29.869 UTC [36] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:29.871 UTC [37] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:06:32.121 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 30.32 s, current path: ./base/16384/3712
+main-sql    | 2026-01-02 17:06:42.067 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 40.27 s, current path: ./base/16384/3598
+main-sql    | 2026-01-02 17:06:51.818 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 50.02 s, current path: ./base/16384/13457_fsm
+main-sql    | 2026-01-02 17:07:02.117 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 60.32 s, current path: ./base/16384/2653
+main-sql    | 2026-01-02 17:07:12.754 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 70.95 s, current path: ./base/16384/2619_vm
+main-sql    | 2026-01-02 17:07:22.196 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 80.40 s, current path: ./base/16384/2603_fsm
+main-sql    | 2026-01-02 17:07:31.911 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 90.11 s, current path: ./base/16384/3605
+main-sql    | 2026-01-02 17:07:42.418 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 100.62 s, current path: ./base/16384/2838_vm
+main-sql    | 2026-01-02 17:07:51.800 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 110.00 s, current path: ./base/1/2608_vm
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Populating Keyspace system_schema
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF scylla_aggregates id=08d8cb28-9202-3371-a968-ad926e0fdc37 version=0932cbed-85be-3dd2-b382-ebc0a1b8ff67 storage=/var/lib/scylla/data/system_schema/scylla_aggregates-08d8cb2892023371a968ad926e0fdc37
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF scylla_keyspaces id=fa0ea2bd-608f-3e74-9b1e-b84b46b33adf version=870d0877-ce04-39f9-b424-b52e3357482f storage=/var/lib/scylla/data/system_schema/scylla_keyspaces-fa0ea2bd608f3e749b1eb84b46b33adf
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF scylla_tables id=5d912ff1-f759-3665-b2c8-8042ab5103dd version=1cd1fbf6-7ec2-39c0-bd43-84d0662bc7be storage=/var/lib/scylla/data/system_schema/scylla_tables-5d912ff1f7593665b2c88042ab5103dd
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF columns id=24101c25-a2ae-3af7-87c1-b40ee1aca33f version=965bb399-b6ce-3719-a2ab-c553007ca96d storage=/var/lib/scylla/data/system_schema/columns-24101c25a2ae3af787c1b40ee1aca33f
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF dropped_columns id=5e7583b5-f3f4-3af1-9a39-b7e1d6f5f11f version=991656e6-6c75-3880-8773-94ef09ea20e9 storage=/var/lib/scylla/data/system_schema/dropped_columns-5e7583b5f3f43af19a39b7e1d6f5f11f
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF triggers id=4df70b66-6b05-3251-95a1-32b54005fd48 version=93d9681a-4c75-3eee-8ee0-fca7551d4b6d storage=/var/lib/scylla/data/system_schema/triggers-4df70b666b05325195a132b54005fd48
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF types id=5a8b1ca8-6602-3f77-a045-9273d308917a version=de9c5552-145c-3374-9d6d-6c26e699a4c5 storage=/var/lib/scylla/data/system_schema/types-5a8b1ca866023f77a0459273d308917a
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF keyspaces id=abac5682-dea6-31c5-b535-b3d6cffd0fb6 version=717dd966-cae2-323f-9d14-a71f0c7332a9 storage=/var/lib/scylla/data/system_schema/keyspaces-abac5682dea631c5b535b3d6cffd0fb6
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF functions id=96489b79-80be-3e14-a701-66a0b9159450 version=b115589d-0bec-3f6a-9146-b649316c4e90 storage=/var/lib/scylla/data/system_schema/functions-96489b7980be3e14a70166a0b9159450
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF aggregates id=924c5587-2e3a-345b-b10c-12f37c1ba895 version=92ed268a-46ff-3368-a6b0-85003702d44f storage=/var/lib/scylla/data/system_schema/aggregates-924c55872e3a345bb10c12f37c1ba895
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF tables id=afddfb9d-bc1e-3068-8056-eed6c302ba09 version=5fd800ab-c110-3c56-9ca7-0fba0e76741a storage=/var/lib/scylla/data/system_schema/tables-afddfb9dbc1e30688056eed6c302ba09
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF indexes id=0feb57ac-311f-382f-ba6d-9024d305702f version=981e19d8-4580-3f54-9995-0c2a0aa548e8 storage=/var/lib/scylla/data/system_schema/indexes-0feb57ac311f382fba6d9024d305702f
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF computed_columns id=cc7c7069-3740-33c1-92a4-c3de78dbd2c4 version=aaac493b-441b-325d-afc6-66750f3182da storage=/var/lib/scylla/data/system_schema/computed_columns-cc7c7069374033c192a4c3de78dbd2c4
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF views id=9786ac1c-dd58-3201-a7cd-ad556410c985 version=0b48b48c-f4c4-3aeb-ac54-b2edf89b3e51 storage=/var/lib/scylla/data/system_schema/views-9786ac1cdd583201a7cdad556410c985
+main-nosql  | INFO  2026-01-02 17:07:54,146 [shard 0:main] database - Keyspace system_schema: Reading CF view_virtual_columns id=08843b63-45dc-3be2-9798-a0418295cfaa version=3d503008-db1e-3a76-88f4-aef847668f2d storage=/var/lib/scylla/data/system_schema/view_virtual_columns-08843b6345dc3be29798a0418295cfaa
+main-nosql  | INFO  2026-01-02 17:07:56,368 [shard 0:main] database - Populating Keyspace system
+main-nosql  | INFO  2026-01-02 17:07:56,369 [shard 0:main] database - Keyspace system: Reading CF schema_functions id=d1b675fe-2b50-3ca4-8e49-c0f81989dcad version=71e3c821-e90d-3156-8620-7dc458ae59a4 storage=/var/lib/scylla/data/system/schema_functions-d1b675fe2b503ca48e49c0f81989dcad
+main-nosql  | INFO  2026-01-02 17:07:56,370 [shard 0:main] database - Keyspace system: Reading CF schema_triggers id=0359bc71-7123-3ee1-9a4a-b9dfb11fc125 version=9841b830-c839-3627-ae16-e76288d76e46 storage=/var/lib/scylla/data/system/schema_triggers-0359bc7171233ee19a4ab9dfb11fc125
+main-nosql  | INFO  2026-01-02 17:07:56,370 [shard 0:main] database - Keyspace system: Reading CF schema_columns id=296e9c04-9bec-3085-827d-c17d3df2122a version=8aba3be5-6206-37d9-8096-eaea206088f9 storage=/var/lib/scylla/data/system/schema_columns-296e9c049bec3085827dc17d3df2122a
+main-nosql  | INFO  2026-01-02 17:07:56,370 [shard 0:main] database - Keyspace system: Reading CF schema_columnfamilies id=45f5b360-24bc-3f83-a363-1034ea4fa697 version=0e2f35a4-7701-3b62-b150-ff40b5c3bd91 storage=/var/lib/scylla/data/system/schema_columnfamilies-45f5b36024bc3f83a3631034ea4fa697
+main-nosql  | INFO  2026-01-02 17:07:56,371 [shard 0:main] database - Keyspace system: Reading CF schema_keyspaces id=b0f22357-4458-3cdb-9631-c43e59ce3676 version=78ed4359-b28f-35ab-8337-0ec575c16766 storage=/var/lib/scylla/data/system/schema_keyspaces-b0f2235744583cdb9631c43e59ce3676
+main-nosql  | INFO  2026-01-02 17:07:56,371 [shard 0:main] database - Keyspace system: Reading CF tablets id=fd4f7a46-96bd-3e73-91bf-99eb77e82a5c version=7699d5b9-8cc8-30a4-b0d7-c1b90d99f50e storage=/var/lib/scylla/data/system/tablets-fd4f7a4696bd3e7391bf99eb77e82a5c
+main-nosql  | INFO  2026-01-02 17:07:56,371 [shard 0:main] database - Keyspace system: Reading CF view_building_tasks id=4fae43d9-1891-3155-82ae-ac4991a79070 version=8624635a-0b87-35db-a283-85728e95247f storage=/var/lib/scylla/data/system/view_building_tasks-4fae43d91891315582aeac4991a79070
+main-nosql  | INFO  2026-01-02 17:07:56,372 [shard 0:main] database - Keyspace system: Reading CF dicts id=c9c77c6f-c08c-3303-9b94-65dd3d25f3ba version=09ac496b-dd80-3076-b2f9-842f2d345e8d storage=/var/lib/scylla/data/system/dicts-c9c77c6fc08c33039b9465dd3d25f3ba
+main-nosql  | INFO  2026-01-02 17:07:56,372 [shard 0:main] database - Keyspace system: Reading CF view_build_status_v2 id=e0ab84ed-510d-374c-bcc0-973d28d13640 version=94c08ea5-c109-3def-8f30-d10d7f156faf storage=/var/lib/scylla/data/system/view_build_status_v2-e0ab84ed510d374cbcc0973d28d13640
+main-nosql  | INFO  2026-01-02 17:07:56,372 [shard 0:main] database - Keyspace system: Reading CF cdc_streams_history id=9df87440-1a56-359f-93fe-0a659b6cbb26 version=e18b354a-76bf-346f-bb2c-64fcd94241c0 storage=/var/lib/scylla/data/system/cdc_streams_history-9df874401a56359f93fe0a659b6cbb26
+main-nosql  | INFO  2026-01-02 17:07:56,372 [shard 0:main] database - Keyspace system: Reading CF service_levels_v2 id=961a7251-d58e-3169-ab49-3391eec5b75d version=e8b9ecff-d293-3e3a-b350-66db1e0c6ee3 storage=/var/lib/scylla/data/system/service_levels_v2-961a7251d58e3169ab493391eec5b75d
+main-nosql  | INFO  2026-01-02 17:07:56,373 [shard 0:main] database - Keyspace system: Reading CF topology_requests id=b3068525-d0f2-39c2-8250-584f9b1bf460 version=c0d60460-56b3-35e2-a6de-0022f73bce59 storage=/var/lib/scylla/data/system/topology_requests-b3068525d0f239c28250584f9b1bf460
+main-nosql  | INFO  2026-01-02 17:07:56,373 [shard 0:main] database - Keyspace system: Reading CF cdc_generations_v3 id=c697df3f-5539-3ef5-b003-843be7ba1422 version=c2f8dfed-cc7d-3ab2-bb60-2fa985d6be3c storage=/var/lib/scylla/data/system/cdc_generations_v3-c697df3f55393ef5b003843be7ba1422
+main-nosql  | INFO  2026-01-02 17:07:56,373 [shard 0:main] database - Keyspace system: Reading CF discovery id=1ef3d792-4f26-3706-a049-fc39024f49c5 version=431ad718-f6cb-3eea-8f81-6cf410d7ce60 storage=/var/lib/scylla/data/system/discovery-1ef3d7924f263706a049fc39024f49c5
+main-nosql  | INFO  2026-01-02 17:07:56,374 [shard 0:main] database - Keyspace system: Reading CF group0_history id=027e42f5-683a-3ed7-b404-a0100762063c version=fb2d07e3-5771-3937-955b-dd6afbd24917 storage=/var/lib/scylla/data/system/group0_history-027e42f5683a3ed7b404a0100762063c
+main-nosql  | INFO  2026-01-02 17:07:56,374 [shard 0:main] database - Keyspace system: Reading CF raft id=3e17774c-57f5-3993-9625-327cbafbf5bb version=cb4c3d09-71a8-3fbd-a30b-5c3c132cd304 storage=/var/lib/scylla/data/system/raft-3e17774c57f539939625327cbafbf5bb
+main-nosql  | INFO  2026-01-02 17:07:56,374 [shard 0:main] database - Keyspace system: Reading CF role_members id=ea2318da-4fdd-33d0-87c1-91435088e326 version=c6943cfa-1253-32fc-9cf7-bd881a828623 storage=/var/lib/scylla/data/system/role_members-ea2318da4fdd33d087c191435088e326
+main-nosql  | INFO  2026-01-02 17:07:56,375 [shard 0:main] database - Keyspace system: Reading CF raft_snapshot_config id=43bba703-ec9d-3ae2-8011-d1f8476aa272 version=c485adda-07e3-353e-91ef-b0080fc511d6 storage=/var/lib/scylla/data/system/raft_snapshot_config-43bba703ec9d3ae28011d1f8476aa272
+main-nosql  | INFO  2026-01-02 17:07:56,375 [shard 0:main] database - Keyspace system: Reading CF peer_events id=59dfeaea-8db2-3341-91ef-109974d81484 version=3666dd8d-67a2-37af-b83f-ac2f87951bc0 storage=/var/lib/scylla/data/system/peer_events-59dfeaea8db2334191ef109974d81484
+main-nosql  | INFO  2026-01-02 17:07:56,375 [shard 0:main] database - Keyspace system: Reading CF commitlog_cleanups id=8cd016f4-846b-3ba2-9ed7-50eb431cd0e4 version=742133b3-db54-3085-8066-e2c9816e15ab storage=/var/lib/scylla/data/system/commitlog_cleanups-8cd016f4846b3ba29ed750eb431cd0e4
+main-nosql  | INFO  2026-01-02 17:07:56,375 [shard 0:main] database - Keyspace system: Reading CF schema_aggregates id=a5fc57fc-9d6c-3bfd-a3fc-01ad54686fea version=4f202946-6654-3918-ba48-7986827d6728 storage=/var/lib/scylla/data/system/schema_aggregates-a5fc57fc9d6c3bfda3fc01ad54686fea
+main-nosql  | INFO  2026-01-02 17:07:56,376 [shard 0:main] database - Keyspace system: Reading CF paxos id=b7b7f0c2-fd0a-3410-8c05-3ef614bb7c2d version=9dae4803-74c7-34c4-8406-9d002f7bd447 storage=/var/lib/scylla/data/system/paxos-b7b7f0c2fd0a34108c053ef614bb7c2d
+main-nosql  | INFO  2026-01-02 17:07:56,376 [shard 0:main] database - Keyspace system: Reading CF cdc_streams_state id=0997ec18-9e18-3ede-8064-49eae76b683e version=7cefad29-2cff-39a2-a938-58bc2e28e192 storage=/var/lib/scylla/data/system/cdc_streams_state-0997ec189e183ede806449eae76b683e
+main-nosql  | INFO  2026-01-02 17:07:56,376 [shard 0:main] database - Keyspace system: Reading CF corrupt_data id=0c2b57b8-3fa8-312d-bcd0-097198247a1f version=ab978e96-8af6-35f8-90f8-44ffdaa8b3a2 storage=/var/lib/scylla/data/system/corrupt_data-0c2b57b83fa8312dbcd0097198247a1f
+main-nosql  | INFO  2026-01-02 17:07:56,376 [shard 0:main] database - Keyspace system: Reading CF hints id=2666e205-73ef-38b3-90fe-fecf96e8f0c7 version=92327ed9-2027-3f40-84d4-fe53b583f32b storage=/var/lib/scylla/data/system/hints-2666e20573ef38b390fefecf96e8f0c7
+main-nosql  | INFO  2026-01-02 17:07:56,377 [shard 0:main] database - Keyspace system: Reading CF local id=7ad54392-bcdd-35a6-8417-4e047860b377 version=c8cb364f-e676-3306-a23f-c9f235907089 storage=/var/lib/scylla/data/system/local-7ad54392bcdd35a684174e047860b377
+main-nosql  | INFO  2026-01-02 17:07:56,377 [shard 0:main] database - Keyspace system: Reading CF compactions_in_progress id=55080ab0-5d9c-3886-90a4-acb25fe1f77b version=29399fd0-851f-3849-9ae7-db4d9f72a91a storage=/var/lib/scylla/data/system/compactions_in_progress-55080ab05d9c388690a4acb25fe1f77b
+main-nosql  | INFO  2026-01-02 17:07:56,377 [shard 0:main] database - Keyspace system: Reading CF batchlog id=0290003c-977e-397c-ac3e-fdfdc01d626b version=1f504ac7-350f-37aa-8a9e-105b1325d8e3 storage=/var/lib/scylla/data/system/batchlog-0290003c977e397cac3efdfdc01d626b
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF compaction_history id=b4dbb7b4-dc49-3fb5-b3bf-ce6e434832ca version=76d12eea-fe99-3390-828a-28474bb0e823 storage=/var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF sstable_activity id=5a1ff267-ace0-3f12-8563-cfae6103c65e version=c852560d-4540-3561-94a2-fc2d140228ec storage=/var/lib/scylla/data/system/sstable_activity-5a1ff267ace03f128563cfae6103c65e
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF IndexInfo id=9f5c6374-d485-3229-9a0a-5094af9ad1e3 version=c5e87d6a-788b-370f-9451-64d19aff1b5a storage=/var/lib/scylla/data/system/IndexInfo-9f5c6374d48532299a0a5094af9ad1e3
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF repair_history id=8e097009-c753-3518-a0ec-217f75f5dffa version=d831a1a1-ead9-3957-9f7b-dd3bf4294518 storage=/var/lib/scylla/data/system/repair_history-8e097009c7533518a0ec217f75f5dffa
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF scylla_local id=2972ec7f-fb20-38dd-aac1-d876f2e3fcbd version=51341235-72c8-3f46-b14f-e1b93fbb4207 storage=/var/lib/scylla/data/system/scylla_local-2972ec7ffb2038ddaac1d876f2e3fcbd
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF peers id=37f71aca-7dc2-383b-a706-72528af04d4f version=dcfa29ca-8136-3973-b0e4-525eb4e0742e storage=/var/lib/scylla/data/system/peers-37f71aca7dc2383ba70672528af04d4f
+main-nosql  | INFO  2026-01-02 17:07:56,378 [shard 0:main] database - Keyspace system: Reading CF schema_usertypes id=3aa75225-4f82-350b-8d5c-430fa221fa0a version=9aa2d0a6-ec73-36a0-8ad7-1f97145e75b3 storage=/var/lib/scylla/data/system/schema_usertypes-3aa752254f82350b8d5c430fa221fa0a
+main-nosql  | INFO  2026-01-02 17:07:56,379 [shard 0:main] database - Keyspace system: Reading CF large_rows id=40550f66-0858-39a0-9430-f27fc08034e9 version=086d8c3b-7779-30f9-8c7d-d490e20a587a storage=/var/lib/scylla/data/system/large_rows-40550f66085839a09430f27fc08034e9
+main-nosql  | INFO  2026-01-02 17:07:56,379 [shard 0:main] database - Keyspace system: Reading CF role_permissions id=42d45091-4c22-3d60-994c-f4dde1153478 version=94ddd667-1941-3a98-995f-54eaf369ba5a storage=/var/lib/scylla/data/system/role_permissions-42d450914c223d60994cf4dde1153478
+main-nosql  | INFO  2026-01-02 17:07:56,380 [shard 0:main] database - Keyspace system: Reading CF built_views id=4b3c50a9-ea87-3d76-9101-6dbc9c38494a version=7dd4fbd2-7793-3e91-911d-fdb02e3a9497 storage=/var/lib/scylla/data/system/built_views-4b3c50a9ea873d7691016dbc9c38494a
+main-nosql  | INFO  2026-01-02 17:07:56,380 [shard 0:main] database - Keyspace system: Reading CF roles id=23392e27-9e45-3292-b429-12845e17c153 version=5fde116a-2d74-3107-90b5-22fa0ddac10e storage=/var/lib/scylla/data/system/roles-23392e279e453292b42912845e17c153
+main-nosql  | INFO  2026-01-02 17:07:56,380 [shard 0:main] database - Keyspace system: Reading CF topology id=5be1feb3-929e-3df9-8da8-d771c36129a0 version=217f4aa9-4b87-3331-9798-b65c3151d68a storage=/var/lib/scylla/data/system/topology-5be1feb3929e3df98da8d771c36129a0
+main-nosql  | INFO  2026-01-02 17:07:56,381 [shard 0:main] database - Keyspace system: Reading CF range_xfers id=55d76438-4e55-3f8b-9f6e-676d4af3976d version=037f35d3-573f-33a2-a3c4-8ffe6eaebb90 storage=/var/lib/scylla/data/system/range_xfers-55d764384e553f8b9f6e676d4af3976d
+main-nosql  | INFO  2026-01-02 17:07:56,381 [shard 0:main] database - Keyspace system: Reading CF size_estimates id=618f817b-005f-3678-b8a4-53f3930b8e86 version=613ab070-8bfb-3118-aa00-227fc6375dd4 storage=/var/lib/scylla/data/system/size_estimates-618f817b005f3678b8a453f3930b8e86
+main-nosql  | INFO  2026-01-02 17:07:56,381 [shard 0:main] database - Keyspace system: Reading CF large_partitions id=8a7fe624-96b0-34b1-b90e-f71bddcdd2d3 version=f62deb77-a400-3cbe-a489-8ee134c20d9d storage=/var/lib/scylla/data/system/large_partitions-8a7fe62496b034b1b90ef71bddcdd2d3
+main-nosql  | INFO  2026-01-02 17:07:56,381 [shard 0:main] database - Keyspace system: Reading CF scylla_table_schema_history id=0191a53e-40f0-31d4-9171-b0d19ffb17b4 version=fefc4525-f763-30fe-9e38-ace85f1fd778 storage=/var/lib/scylla/data/system/scylla_table_schema_history-0191a53e40f031d49171b0d19ffb17b4
+main-nosql  | INFO  2026-01-02 17:07:56,382 [shard 0:main] database - Keyspace system: Reading CF raft_snapshots id=6fa537a7-7e97-344e-9034-b69c7ef69be6 version=aa7dfdf3-05b5-389e-8c69-96171192c454 storage=/var/lib/scylla/data/system/raft_snapshots-6fa537a77e97344e9034b69c7ef69be6
+main-nosql  | INFO  2026-01-02 17:07:56,382 [shard 0:main] database - Keyspace system: Reading CF role_attributes id=f7c2e5a6-f361-3cbd-936a-91c7c1e1051d version=de42c8f2-2054-388f-9469-4eec740291ec storage=/var/lib/scylla/data/system/role_attributes-f7c2e5a6f3613cbd936a91c7c1e1051d
+main-nosql  | INFO  2026-01-02 17:07:56,382 [shard 0:main] database - Keyspace system: Reading CF large_cells id=ead8bbc5-f146-3ae1-9f71-0b11f9a1d296 version=b1d2e97c-c06d-3ad5-a50b-2895610e3b84 storage=/var/lib/scylla/data/system/large_cells-ead8bbc5f1463ae19f710b11f9a1d296
+main-nosql  | INFO  2026-01-02 17:07:56,382 [shard 0:main] database - Keyspace system: Reading CF views_builds_in_progress id=b7f2c108-78cd-3c80-9cd5-d609b2bd149c version=3b4570f3-b3d5-3131-82c6-703495f4efa7 storage=/var/lib/scylla/data/system/views_builds_in_progress-b7f2c10878cd3c809cd5d609b2bd149c
+main-nosql  | INFO  2026-01-02 17:07:56,383 [shard 0:main] database - Keyspace system: Reading CF scylla_views_builds_in_progress id=a04c7bfd-1e13-36c9-a44d-f22da352281d version=08b2ace6-46f2-3666-82c2-4fc531ee6e19 storage=/var/lib/scylla/data/system/scylla_views_builds_in_progress-a04c7bfd1e1336c9a44df22da352281d
+main-nosql  | INFO  2026-01-02 17:07:56,383 [shard 0:main] database - Keyspace system: Reading CF truncated id=38c19fd0-fb86-3310-a4b7-0d0cc66628aa version=26855f4b-1fc1-35f8-ad96-4152a9835ddb storage=/var/lib/scylla/data/system/truncated-38c19fd0fb863310a4b70d0cc66628aa
+main-nosql  | INFO  2026-01-02 17:07:56,383 [shard 0:main] database - Keyspace system: Reading CF cdc_local id=0bcaffd4-0c83-3ead-ad13-dc1d5015b77c version=f9f1483c-8f8a-3947-b0e7-97ced0a99de9 storage=/var/lib/scylla/data/system/cdc_local-0bcaffd40c833eadad13dc1d5015b77c
+main-nosql  | INFO  2026-01-02 17:07:56,618 [shard 0:main] sstable_directory - Found temporary sstable directory: /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/3gwq_1b93_56gyo2qnyg5i5ilx2a.sstable, removing
+main-nosql  | INFO  2026-01-02 17:07:56,619 [shard 0:main] sstable_directory - Found temporary sstable directory: /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/3gwq_1b93_56gyo2iu6pahyjmroi.sstable, removing
+main-nosql  | INFO  2026-01-02 17:07:56,619 [shard 0:main] sstable_directory - Found temporary sstable directory: /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/3gwq_1b93_55ttc277dnq5n3uzz6.sstable, removing
+main-nosql  | INFO  2026-01-02 17:07:56,619 [shard 0:main] sstable_directory - Found temporary sstable directory: /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/3gwq_1b93_55ttc2nrbyj7xlnu02.sstable, removing
+main-nosql  | INFO  2026-01-02 17:07:57,478 [shard 0:main] sstable_directory - Removing file /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/me-3gwq_1b93_55ttc277dnq5n3uzz6-big-TOC.txt.tmp
+main-nosql  | INFO  2026-01-02 17:07:57,478 [shard 1:main] sstable_directory - Removing file /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/me-3gwq_1b93_55ttc2nrbyj7xlnu02-big-TOC.txt.tmp
+main-nosql  | INFO  2026-01-02 17:07:57,478 [shard 6:main] sstable_directory - Removing file /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/me-3gwq_1b93_56gyo2iu6pahyjmroi-big-TOC.txt.tmp
+main-nosql  | INFO  2026-01-02 17:07:57,480 [shard 7:main] sstable_directory - Removing file /var/lib/scylla/data/system/compaction_history-b4dbb7b4dc493fb5b3bfce6e434832ca/me-3gwq_1b93_56gyo2qnyg5i5ilx2a-big-TOC.txt.tmp
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature MS_SSTABLE_FORMAT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TRUNCATE_AS_TOPOLOGY_OPERATION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLETS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TYPED_ERRORS_IN_READ_RPC is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature AGGREGATE_STORAGE_OPTIONS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature SECONDARY_INDEXES_ON_STATIC_COLUMNS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TOPOLOGY_REQUESTS_TYPE_COLUMN is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature RANGE_TOMBSTONE_AND_DEAD_ROWS_DETECTION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature LARGE_COLLECTION_DETECTION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature UDA_NATIVE_PARALLELIZED_AGGREGATION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature MAINTENANCE_TENANT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLE_DIGEST_INSENSITIVE_TO_EXPIRY is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature REPAIR_MSG_SPLIT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature CDC_GENERATIONS_V2 is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature NATIVE_REVERSE_QUERIES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature PARALLELIZED_AGGREGATION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature SEPARATE_PAGE_SIZE_AND_SAFETY_LIMIT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature RANGE_SCAN_DATA_VARIANT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature COLLECTION_INDEXING is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature GROUP0_SCHEMA_VERSIONING is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature SUPPORTS_RAFT_CLUSTER_MANAGEMENT is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature UDA is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_MERGE is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature EMPTY_REPLICA_PAGES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TOMBSTONE_GC_OPTIONS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature SUPPORTS_CONSISTENT_TOPOLOGY_CHANGES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature ALTERNATOR_TTL is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature VIEW_BUILD_STATUS_ON_GROUP0 is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature VIEWS_WITH_TABLETS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature GROUP0_LIMITED_VOTERS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature COMPACTION_HISTORY_UPGRADE is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature FRAGMENTED_COMMITLOG_ENTRIES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature EMPTY_REPLICA_MUTATION_PAGES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature FILE_STREAM is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_INCREMENTAL_REPAIR is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TOPOLOGY_GLOBAL_REQUEST_QUEUE is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature ADDRESS_NODES_BY_HOST_IDS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature REPAIR_BASED_TABLET_REBUILD is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_RACK_AWARE_VIEW_PAIRING is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_MIGRATION_VIRTUAL_TASK is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_RESIZE_VIRTUAL_TASK is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_REPAIR_SCHEDULER is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature IN_MEMORY_TABLES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature COLOCATED_TABLETS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature WORKLOAD_PRIORITIZATION is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature COMPRESSION_DICTS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature CDC_WITH_TABLETS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_OPTIONS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature ZERO_TOKEN_NODES is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature TABLET_LOAD_STATS_V2 is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature SSTABLE_COMPRESSION_DICTS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature LWT_WITH_TABLETS is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature ENFORCED_RAFT_RPC_SCHEDULING_GROUP is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature LOAD_AND_STREAM_ABORT_RPC_MESSAGE is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature HOST_ID_BASED_HINTED_HANDOFF is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,632 [shard 0:main] features - Feature VIEW_BUILDING_COORDINATOR is enabled
+main-nosql  | INFO  2026-01-02 17:07:57,635 [shard 0:main] init - replaying schema commit log
+main-nosql  | INFO  2026-01-02 17:07:57,636 [shard 0:main] commitlog_replayer - Replaying /var/lib/scylla/commitlog/schema/SchemaLog-4-35019112.log, /var/lib/scylla/commitlog/schema/SchemaLog-4-35019114.log
+main-nosql  | WARN  2026-01-02 17:07:58,290 [shard 0:main] commitlog_replayer - Corrupted file: /var/lib/scylla/commitlog/schema/SchemaLog-4-35019112.log. 4096 bytes skipped.
+main-nosql  | INFO  2026-01-02 17:07:58,290 [shard 0:main] commitlog_replayer - Log replay complete, 481 replayed mutations (0 invalid, 0 skipped)
+main-nosql  | INFO  2026-01-02 17:07:58,291 [shard 0:main] init - replaying schema commit log - flushing memtables
+main-sql    | 2026-01-02 17:08:01.802 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 120.00 s, current path: ./base/5/3599
+main-sql    | 2026-01-02 17:08:11.711 UTC [38] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:08:11.713 UTC [39] FATAL:  the database system is starting up
+main-sql    | 2026-01-02 17:08:11.961 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 130.16 s, current path: ./base/5/2616_vm
+main-sql    | 2026-01-02 17:08:22.331 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 140.53 s, current path: ./base/5/3603_vm
+main-sql    | 2026-01-02 17:08:31.824 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 150.02 s, current path: ./base/5/13462
+main-sql    | 2026-01-02 17:08:41.903 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 160.10 s, current path: ./base/5/2660
+main-sql    | 2026-01-02 17:08:51.920 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 170.12 s, current path: ./base/5/2690
+main-sql    | 2026-01-02 17:09:02.223 UTC [29] LOG:  syncing data directory (fsync), elapsed time: 180.42 s, current path: pg_tblspc
+main-sql    | 2026-01-02 17:09:02.412 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+main-sql    | 2026-01-02 17:09:03.439 UTC [29] LOG:  redo starts at 0/1509EF0
+main-sql    | 2026-01-02 17:09:05.616 UTC [29] LOG:  invalid record length at 0/192DE68: wanted 24, got 0
+main-sql    | 2026-01-02 17:09:05.616 UTC [29] LOG:  redo done at 0/192DE20 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 2.17 s
+main-sql    | 2026-01-02 17:09:07.566 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+main-nosql  | INFO  2026-01-02 17:09:08,225 [shard 0:main] init - replaying schema commit log - removing old commitlog segments
+main-nosql  | INFO  2026-01-02 17:09:08,355 [shard 0:main] init - starting gossip address map
+main-nosql  | INFO  2026-01-02 17:09:09,242 [shard 0:main] init - starting compressor_tracker
+main-nosql  | INFO  2026-01-02 17:09:09,243 [shard 0:main] init - starting messaging service
+main-nosql  | INFO  2026-01-02 17:09:09,528 [shard 0:main] init - starting gossiper
+main-nosql  | WARN  2026-01-02 17:09:09,528 [shard 0:main] init - Using default cluster name is not recommended. Using a unique cluster name will reduce the chance of adding nodes to the wrong cluster by mistake
+main-nosql  | INFO  2026-01-02 17:09:09,664 [shard 0:main] init - seeds={172.18.0.3}, listen_address=172.18.0.3, broadcast_address=172.18.0.3
+main-nosql  | INFO  2026-01-02 17:09:09,668 [shard 0:main] init - starting direct failure detector pinger service
+main-nosql  | INFO  2026-01-02 17:09:09,668 [shard 0:main] init - starting direct failure detector service
+main-nosql  | INFO  2026-01-02 17:09:09,670 [shard 0:main] init - starting Raft Group
+main-nosql  | INFO  2026-01-02 17:09:09,671 [shard 0:main] init - starting tablet allocator
+main-nosql  | INFO  2026-01-02 17:09:09,674 [shard 0:main] init - starting mapreduce service
+main-nosql  | INFO  2026-01-02 17:09:09,681 [shard 0:main] init - starting migration manager
+main-nosql  | INFO  2026-01-02 17:09:09,681 [shard 0:main] migration_manager - Reloading schema
+main-nosql  | INFO  2026-01-02 17:09:09,683 [shard 0:main] init - starting topology state machine
+main-nosql  | INFO  2026-01-02 17:09:09,685 [shard 0:main] init - starting system distributed keyspace
+main-nosql  | INFO  2026-01-02 17:09:09,687 [shard 0:main] init - starting view update generator
+main-nosql  | INFO  2026-01-02 17:09:09,694 [shard 0:main] init - starting the view builder
+main-nosql  | INFO  2026-01-02 17:09:09,699 [shard 0:main] init - starting the view building worker
+main-nosql  | INFO  2026-01-02 17:09:09,704 [shard 0:main] init - starting repair service
+main-nosql  | INFO  2026-01-02 17:09:09,704 [shard 0:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 0:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 2:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 1:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 4:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 7:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,705 [shard 6:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,706 [shard 1:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,706 [shard 4:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,706 [shard 2:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,707 [shard 6:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,707 [shard 7:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,707 [shard 3:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,708 [shard 3:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,709 [shard 5:main] repair - Setting max_repair_memory=425512140, max_repair_memory_per_range=33554432, max_repair_ranges_in_parallel=3
+main-nosql  | INFO  2026-01-02 17:09:09,711 [shard 5:main] task_manager - Registered module repair
+main-nosql  | INFO  2026-01-02 17:09:09,715 [shard 0:main] init - starting streaming service
+main-nosql  | INFO  2026-01-02 17:09:09,723 [shard 1:main] repair - Loading repair history for keyspace=system, table=role_attributes, table_uuid=f7c2e5a6-f361-3cbd-936a-91c7c1e1051d
+main-nosql  | INFO  2026-01-02 17:09:09,724 [shard 4:main] repair - Loading repair history for keyspace=system, table=schema_keyspaces, table_uuid=b0f22357-4458-3cdb-9631-c43e59ce3676
+main-nosql  | INFO  2026-01-02 17:09:09,724 [shard 3:main] repair - Loading repair history for keyspace=system, table=schema_usertypes, table_uuid=3aa75225-4f82-350b-8d5c-430fa221fa0a
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 1:main] repair - Loading repair history for keyspace=system, table=commitlog_cleanups, table_uuid=8cd016f4-846b-3ba2-9ed7-50eb431cd0e4
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 4:main] repair - Loading repair history for keyspace=system, table=role_permissions, table_uuid=42d45091-4c22-3d60-994c-f4dde1153478
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 4:main] repair - Loading repair history for keyspace=system, table=peers, table_uuid=37f71aca-7dc2-383b-a706-72528af04d4f
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 1:main] repair - Loading repair history for keyspace=system, table=paxos, table_uuid=b7b7f0c2-fd0a-3410-8c05-3ef614bb7c2d
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 3:main] repair - Loading repair history for keyspace=system, table=range_xfers, table_uuid=55d76438-4e55-3f8b-9f6e-676d4af3976d
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 4:main] repair - Loading repair history for keyspace=system, table=cdc_streams_history, table_uuid=9df87440-1a56-359f-93fe-0a659b6cbb26
+main-nosql  | INFO  2026-01-02 17:09:09,725 [shard 1:main] repair - Loading repair history for keyspace=system, table=scylla_local, table_uuid=2972ec7f-fb20-38dd-aac1-d876f2e3fcbd
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 3:main] repair - Loading repair history for keyspace=system, table=large_cells, table_uuid=ead8bbc5-f146-3ae1-9f71-0b11f9a1d296
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 4:main] repair - Loading repair history for keyspace=system, table=scylla_views_builds_in_progress, table_uuid=a04c7bfd-1e13-36c9-a44d-f22da352281d
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 3:main] repair - Loading repair history for keyspace=system_schema, table=scylla_tables, table_uuid=5d912ff1-f759-3665-b2c8-8042ab5103dd
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 4:main] repair - Loading repair history for keyspace=system, table=repair_history, table_uuid=8e097009-c753-3518-a0ec-217f75f5dffa
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 3:main] repair - Loading repair history for keyspace=system_schema, table=columns, table_uuid=24101c25-a2ae-3af7-87c1-b40ee1aca33f
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 5:main] repair - Loading repair history for keyspace=system, table=compaction_history, table_uuid=b4dbb7b4-dc49-3fb5-b3bf-ce6e434832ca
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 3:main] repair - Loading repair history for keyspace=system, table=cdc_generations_v3, table_uuid=c697df3f-5539-3ef5-b003-843be7ba1422
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 4:main] repair - Loading repair history for keyspace=system, table=service_levels_v2, table_uuid=961a7251-d58e-3169-ab49-3391eec5b75d
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 3:main] repair - Loading repair history for keyspace=system, table=raft_snapshot_config, table_uuid=43bba703-ec9d-3ae2-8011-d1f8476aa272
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 4:main] repair - Loading repair history for keyspace=system_schema, table=scylla_aggregates, table_uuid=08d8cb28-9202-3371-a968-ad926e0fdc37
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 3:main] repair - Loading repair history for keyspace=system, table=corrupt_data, table_uuid=0c2b57b8-3fa8-312d-bcd0-097198247a1f
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 3:main] repair - Loading repair history for keyspace=system, table=topology, table_uuid=5be1feb3-929e-3df9-8da8-d771c36129a0
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 4:main] repair - Loading repair history for keyspace=system, table=view_build_status_v2, table_uuid=e0ab84ed-510d-374c-bcc0-973d28d13640
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 3:main] repair - Loading repair history for keyspace=system, table=raft_snapshots, table_uuid=6fa537a7-7e97-344e-9034-b69c7ef69be6
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 0:main] repair - Loading repair history for keyspace=system, table=schema_columnfamilies, table_uuid=45f5b360-24bc-3f83-a363-1034ea4fa697
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 2:main] repair - Loading repair history for keyspace=system, table=cdc_streams_state, table_uuid=0997ec18-9e18-3ede-8064-49eae76b683e
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 5:main] repair - Loading repair history for keyspace=system_schema, table=scylla_keyspaces, table_uuid=fa0ea2bd-608f-3e74-9b1e-b84b46b33adf
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 0:main] init - starting streaming manager
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 0:main] repair - Loading repair history for keyspace=system, table=large_rows, table_uuid=40550f66-0858-39a0-9430-f27fc08034e9
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 5:main] repair - Loading repair history for keyspace=system, table=sstable_activity, table_uuid=5a1ff267-ace0-3f12-8563-cfae6103c65e
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 0:main] repair - Loading repair history for keyspace=system, table=topology_requests, table_uuid=b3068525-d0f2-39c2-8250-584f9b1bf460
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 5:main] repair - Loading repair history for keyspace=system_schema, table=views, table_uuid=9786ac1c-dd58-3201-a7cd-ad556410c985
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 0:main] repair - Loading repair history for keyspace=system, table=raft, table_uuid=3e17774c-57f5-3993-9625-327cbafbf5bb
+main-nosql  | INFO  2026-01-02 17:09:09,726 [shard 1:main] repair - Loading repair history for keyspace=system, table=built_views, table_uuid=4b3c50a9-ea87-3d76-9101-6dbc9c38494a
+main-nosql  | INFO  2026-01-02 17:09:09,723 [shard 7:main] repair - Loading repair history for keyspace=system, table=schema_functions, table_uuid=d1b675fe-2b50-3ca4-8e49-c0f81989dcad
+main-nosql  | INFO  2026-01-02 17:09:09,728 [shard 5:main] repair - Loading repair history for keyspace=system_schema, table=functions, table_uuid=96489b79-80be-3e14-a701-66a0b9159450
+main-nosql  | INFO  2026-01-02 17:09:09,729 [shard 5:main] repair - Loading repair history for keyspace=system, table=large_partitions, table_uuid=8a7fe624-96b0-34b1-b90e-f71bddcdd2d3
+main-nosql  | INFO  2026-01-02 17:09:09,729 [shard 5:main] repair - Loading repair history for keyspace=system, table=view_building_tasks, table_uuid=4fae43d9-1891-3155-82ae-ac4991a79070
+main-nosql  | INFO  2026-01-02 17:09:09,730 [shard 5:main] repair - Loading repair history for keyspace=system, table=views_builds_in_progress, table_uuid=b7f2c108-78cd-3c80-9cd5-d609b2bd149c
+main-nosql  | INFO  2026-01-02 17:09:09,730 [shard 7:main] repair - Loading repair history for keyspace=system, table=compactions_in_progress, table_uuid=55080ab0-5d9c-3886-90a4-acb25fe1f77b
+main-nosql  | INFO  2026-01-02 17:09:09,731 [shard 7:main] repair - Loading repair history for keyspace=system, table=role_members, table_uuid=ea2318da-4fdd-33d0-87c1-91435088e326
+main-nosql  | INFO  2026-01-02 17:09:09,731 [shard 7:main] repair - Loading repair history for keyspace=system_schema, table=keyspaces, table_uuid=abac5682-dea6-31c5-b535-b3d6cffd0fb6
+main-nosql  | INFO  2026-01-02 17:09:09,731 [shard 2:main] repair - Loading repair history for keyspace=system, table=roles, table_uuid=23392e27-9e45-3292-b429-12845e17c153
+main-nosql  | INFO  2026-01-02 17:09:09,731 [shard 7:main] repair - Loading repair history for keyspace=system, table=local, table_uuid=7ad54392-bcdd-35a6-8417-4e047860b377
+main-nosql  | INFO  2026-01-02 17:09:09,732 [shard 2:main] repair - Loading repair history for keyspace=system, table=schema_triggers, table_uuid=0359bc71-7123-3ee1-9a4a-b9dfb11fc125
+main-nosql  | INFO  2026-01-02 17:09:09,732 [shard 7:main] repair - Loading repair history for keyspace=system, table=scylla_table_schema_history, table_uuid=0191a53e-40f0-31d4-9171-b0d19ffb17b4
+main-nosql  | INFO  2026-01-02 17:09:09,727 [shard 3:main] repair - Loading repair history for keyspace=system, table=dicts, table_uuid=c9c77c6f-c08c-3303-9b94-65dd3d25f3ba
+main-nosql  | INFO  2026-01-02 17:09:09,732 [shard 0:main] repair - Loading repair history for keyspace=system, table=cdc_local, table_uuid=0bcaffd4-0c83-3ead-ad13-dc1d5015b77c
+main-nosql  | INFO  2026-01-02 17:09:09,732 [shard 0:main] repair - Loading repair history for keyspace=system_schema, table=indexes, table_uuid=0feb57ac-311f-382f-ba6d-9024d305702f
+main-nosql  | INFO  2026-01-02 17:09:09,733 [shard 0:main] repair - Loading repair history for keyspace=system, table=discovery, table_uuid=1ef3d792-4f26-3706-a049-fc39024f49c5
+main-nosql  | INFO  2026-01-02 17:09:09,723 [shard 6:main] repair - Loading repair history for keyspace=system, table=schema_columns, table_uuid=296e9c04-9bec-3085-827d-c17d3df2122a
+main-nosql  | INFO  2026-01-02 17:09:09,735 [shard 6:main] repair - Loading repair history for keyspace=system, table=schema_aggregates, table_uuid=a5fc57fc-9d6c-3bfd-a3fc-01ad54686fea
+main-nosql  | INFO  2026-01-02 17:09:09,735 [shard 6:main] repair - Loading repair history for keyspace=system, table=peer_events, table_uuid=59dfeaea-8db2-3341-91ef-109974d81484
+main-nosql  | INFO  2026-01-02 17:09:09,735 [shard 6:main] repair - Loading repair history for keyspace=system, table=batchlog, table_uuid=0290003c-977e-397c-ac3e-fdfdc01d626b
+main-nosql  | INFO  2026-01-02 17:09:09,735 [shard 6:main] repair - Loading repair history for keyspace=system, table=hints, table_uuid=2666e205-73ef-38b3-90fe-fecf96e8f0c7
+main-nosql  | INFO  2026-01-02 17:09:09,735 [shard 6:main] repair - Loading repair history for keyspace=system_schema, table=types, table_uuid=5a8b1ca8-6602-3f77-a045-9273d308917a
+main-nosql  | INFO  2026-01-02 17:09:09,736 [shard 6:main] repair - Loading repair history for keyspace=system, table=size_estimates, table_uuid=618f817b-005f-3678-b8a4-53f3930b8e86
+main-nosql  | INFO  2026-01-02 17:09:09,736 [shard 6:main] repair - Loading repair history for keyspace=system, table=truncated, table_uuid=38c19fd0-fb86-3310-a4b7-0d0cc66628aa
+main-nosql  | INFO  2026-01-02 17:09:09,736 [shard 6:main] repair - Loading repair history for keyspace=system, table=group0_history, table_uuid=027e42f5-683a-3ed7-b404-a0100762063c
+main-nosql  | INFO  2026-01-02 17:09:09,738 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=tables, table_uuid=afddfb9d-bc1e-3068-8056-eed6c302ba09
+main-nosql  | INFO  2026-01-02 17:09:09,738 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=aggregates, table_uuid=924c5587-2e3a-345b-b10c-12f37c1ba895
+main-nosql  | INFO  2026-01-02 17:09:09,738 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=view_virtual_columns, table_uuid=08843b63-45dc-3be2-9798-a0418295cfaa
+main-nosql  | INFO  2026-01-02 17:09:09,738 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=dropped_columns, table_uuid=5e7583b5-f3f4-3af1-9a39-b7e1d6f5f11f
+main-nosql  | INFO  2026-01-02 17:09:09,739 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=triggers, table_uuid=4df70b66-6b05-3251-95a1-32b54005fd48
+main-nosql  | INFO  2026-01-02 17:09:09,739 [shard 2:main] repair - Loading repair history for keyspace=system_schema, table=computed_columns, table_uuid=cc7c7069-3740-33c1-92a4-c3de78dbd2c4
+main-nosql  | INFO  2026-01-02 17:09:09,739 [shard 2:main] repair - Loading repair history for keyspace=system, table=IndexInfo, table_uuid=9f5c6374-d485-3229-9a0a-5094af9ad1e3
+main-nosql  | INFO  2026-01-02 17:09:09,740 [shard 2:main] repair - Loading repair history for keyspace=system, table=tablets, table_uuid=fd4f7a46-96bd-3e73-91bf-99eb77e82a5c
+main-nosql  | INFO  2026-01-02 17:09:09,742 [shard 0:main] stream_session - Set unlimited streaming bandwidth
+main-nosql  | INFO  2026-01-02 17:09:09,747 [shard 0:main] init - initializing storage service
+main-nosql  | INFO  2026-01-02 17:09:09,747 [shard 0:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,747 [shard 0:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,747 [shard 0:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 1:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 1:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 1:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 7:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 7:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 7:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 5:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 5:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 5:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 6:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 6:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 6:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,748 [shard 4:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 4:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 4:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 2:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 2:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 2:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 3:main] storage_service - Started node_ops_abort_thread
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 3:main] task_manager - Registered module node_ops
+main-nosql  | INFO  2026-01-02 17:09:09,749 [shard 3:main] task_manager - Registered module tablets
+main-nosql  | INFO  2026-01-02 17:09:09,753 [shard 0:main] init - initializing query processor remote part
+main-nosql  | INFO  2026-01-02 17:09:09,755 [shard 0:main] init - initializing virtual tables
+main-nosql  | INFO  2026-01-02 17:09:09,830 [shard 0:main] init - starting Raft Group Registry service
+main-nosql  | INFO  2026-01-02 17:09:09,961 [shard 0:main] init - initializing system schema
+main-nosql  | INFO  2026-01-02 17:09:09,962 [shard 0:main] legacy_schema_migrator - Moving 0 keyspaces from legacy schema tables to the new schema keyspace (system_schema)
+main-nosql  | INFO  2026-01-02 17:09:10,053 [shard 0:main] schema_tables - Schema version changed to 0caaa374-e7de-11f0-2853-30ff21732e40
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 0:main] legacy_schema_migrator - Dropping legacy schema tables
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 0:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 1:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 2:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,375 [shard 7:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 4:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,374 [shard 3:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,375 [shard 6:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,375 [shard 5:main] database - Dropping system.schema_aggregates without snapshot
+main-nosql  | INFO  2026-01-02 17:09:10,375 [shard 0:main] database - Truncating system.schema_aggregates without snapshot
+main-sql    | 2026-01-02 17:09:12.169 UTC [40] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:09:12.169 UTC [40] DETAIL:  Consistent recovery state has not been yet reached.
+main-sql    | 2026-01-02 17:09:12.173 UTC [41] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:09:12.173 UTC [41] DETAIL:  Consistent recovery state has not been yet reached.
+main-nosql  | INFO  2026-01-02 17:09:31,836 [shard 0:main] database - Truncated system.schema_aggregates
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 0:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 2:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 1:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 4:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 5:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,593 [shard 3:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,594 [shard 7:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,594 [shard 6:main] database - Dropping system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:44,596 [shard 0:main] database - Truncating system.schema_functions without snapshot
+main-nosql  | INFO  2026-01-02 17:09:58,092 [shard 0:main] database - Truncated system.schema_functions
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 0:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 1:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 5:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 2:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 3:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 4:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 7:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 6:main] database - Dropping system.schema_usertypes without snapshot
+main-nosql  | INFO  2026-01-02 17:10:05,975 [shard 0:main] database - Truncating system.schema_usertypes without snapshot
+main-sql    | 2026-01-02 17:10:11.134 UTC [42] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:10:11.134 UTC [42] DETAIL:  Consistent recovery state has not been yet reached.
+main-sql    | 2026-01-02 17:10:11.135 UTC [43] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:10:11.135 UTC [43] DETAIL:  Consistent recovery state has not been yet reached.
+main-sql    | 2026-01-02 17:10:12.271 UTC [44] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:10:12.271 UTC [44] DETAIL:  Consistent recovery state has not been yet reached.
+main-sql    | 2026-01-02 17:10:12.272 UTC [45] FATAL:  the database system is not yet accepting connections
+main-sql    | 2026-01-02 17:10:12.272 UTC [45] DETAIL:  Consistent recovery state has not been yet reached.
