@@ -7,3 +7,4 @@ pub mod tests;
 pub mod utils;
 pub mod catchers;
 pub mod rocket;
+pub mod middlewares;

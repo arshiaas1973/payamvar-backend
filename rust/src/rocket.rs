@@ -1,9 +1,15 @@
 use rocket::{Rocket, Build};
 
-use crate::routes;
+use crate::{catchers, middlewares, routes};
 
 pub fn rocket() -> Rocket<Build> {
-    rocket::build()
-        .mount("/api", routes::main::routes())
-        .mount("/", routes![index])
+    let mut rocket: Rocket<Build> = rocket::build();
+    for item in routes::main::routes() {
+        for child in item.1 {
+            rocket = rocket.mount(format!("/api{}{}", item.0, child.0), child.1);
+        }
+    }
+    rocket = rocket.register("/", catchers::main::routes());
+    rocket = rocket.attach(middlewares::main::fairings());
+    rocket
 }
