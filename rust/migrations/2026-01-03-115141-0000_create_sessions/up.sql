@@ -1,0 +1,13 @@
+-- Your SQL goes here
+CREATE TABLE sessions(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    ip_address VARCHAR(45) NOT NULL,
+    os VARCHAR(100) DEFAULT('Unknown'),
+    browser VARCHAR(100) DEFAULT('Unknown'),
+    session_token VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT(CURRENT_TIMESTAMP),
+    updated_at TIMESTAMP DEFAULT(CURRENT_TIMESTAMP),
+    expires_at TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP NULL
+);
