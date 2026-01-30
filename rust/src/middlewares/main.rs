@@ -1,9 +1,9 @@
 use rocket::fairing::Fairing;
 
-use crate::middlewares::authorization;
+use crate::middlewares::authorization::{self, ApiKeyFairing};
 
-pub fn fairings() -> Vec<dyn Fairing> {
+pub fn fairings() -> Vec<Box<dyn Fairing>> {
     vec![
-        authorization::AuthorizationFairing,
+        Box::new(authorization::ApiKeyFairing),
     ]
 }

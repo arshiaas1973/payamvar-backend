@@ -1,0 +1,6 @@
+__pycache__
+*/__pycache__
+alembic.ini
+docker/scylla-data/*
+docker/scylla-manager/*
+docker/pgdata/*

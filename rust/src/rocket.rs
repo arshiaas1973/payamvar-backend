@@ -10,6 +10,8 @@ pub fn rocket() -> Rocket<Build> {
         }
     }
     rocket = rocket.register("/", catchers::main::routes());
-    rocket = rocket.attach(middlewares::main::fairings());
+    for item in middlewares::main::fairings(){
+        rocket = rocket.attach(item);
+    }
     rocket
 }

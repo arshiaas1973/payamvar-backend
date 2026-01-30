@@ -1,5 +1,6 @@
 use dotenvy::{EnvLoader};
 use rocket::fairing::{Fairing, Info, Kind};
+use rocket::outcome::Outcome;
 use rocket::{Data, Request};
 use rocket::http::Status;
 
@@ -27,7 +28,9 @@ impl Fairing for ApiKeyFairing {
             Some(key) => key,
             None => {
                 println!("API_KEY not found in .env file");
-                return Outcome::Failure((Status::InternalServerError, ()));
+                request.respond(Status::InternalServerError).await;
+                return;
+                // return Outcome::Failure((Status::InternalServerError, ()));
             }
         };
         if request.uri().path().starts_with("/api") {

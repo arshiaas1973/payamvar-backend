@@ -1,0 +1,118 @@
+services:
+  main-nosql:
+    container_name: nest-main-nosql
+    image: scylladb/scylla
+    ports:
+      - "9042:9042"   # CQL
+      - "9180:9180"   # Prometheus
+    volumes:
+      - scylla-data:/var/lib/scylla
+    networks:
+      - backend-network
+    env_file:
+      - .env
+    command: >
+      --smp 2
+      --memory 2G
+      --overprovisioned 1
+      --developer-mode 1
+
+  nosql-monitor:
+    container_name: nest-main-nosql-monitor
+    image: scylladb/scylla-manager
+    ports:
+      - "5080:5080"   # Manager API
+    depends_on:
+      - main-nosql
+    volumes:
+      - scylla-manager:/var/lib/scylla-manager
+    networks:
+      - backend-network
+    env_file:
+      - .env
+
+  nosql-manager-agent:
+    image: scylladb/scylla-manager-agent
+    container_name: nest-nosql-monitor-agent
+    depends_on:
+      - main-nosql
+    command: >
+      --manager-api=http://nosql-manager:5080
+      --scylla-api=http://main-nosql:10000
+    volumes:
+      - scylla-manager-agent:/var/lib/scylla-manager-agent
+    networks:
+      - backend-network
+  
+  datastax-studio:
+    image: datastax/dse-studio
+    container_name: nosql-studio
+    ports:
+      - "9091:9091"
+    environment:
+      - DS_LICENSE=accept
+    networks:
+      - backend-network
+
+  grafana-management-panel:
+    image: grafana/grafana:latest
+    container_name: grafana-management-panel
+    ports:
+      - "8888:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - backend-network
+
+  main-sql:
+    container_name: nest-main-sql
+    image: postgres:15
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend-network
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  scylla-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/scylla-data
+      o: bind
+  pgdata:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/pgdata
+      o: bind
+  scylla-manager:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/scylla-manager
+      o: bind
+  scylla-manager-agent:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/scylla-manager-agent
+      o: bind
+  grafana-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/grafana-data
+      o: bind
+  # prometheus-data:
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     device: ${PWD}/docker/prometheus-data
+  #     o: bind
