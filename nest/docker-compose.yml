@@ -1,49 +1,51 @@
 services:
   main-nosql:
-    container_name: nest-main-nosql
-    image: scylladb/scylla
+    image: cassandra:4.1
+    container_name: nest-main-nosql-instance-1
+    hostname: nest-main-nosql-instance-1
+    environment:
+      - CASSANDRA_CLUSTER_NAME=PayamvarCluster
+      - CASSANDRA_NUM_TOKENS=16
+      - CASSANDRA_START_RPC=true
     ports:
-      - "9042:9042"   # CQL
-      - "9180:9180"   # Prometheus
+      - "9042:9042"
     volumes:
-      - scylla-data:/var/lib/scylla
+      - cassandra_data:/var/lib/cassandra
+    restart: unless-stopped
     networks:
       - backend-network
+  main-nosql-2:
+    image: cassandra:4.1
+    container_name: nest-main-nosql-instance-2
+    hostname: nest-main-nosql-instance-2
+    volumes:
+      - cassandra_data_2:/var/lib/cassandra
+      - ./init-cassandra-config.sh:/init-cassandra-config.sh
+    entrypoint: ["/bin/bash", "/init-cassandra-config.sh"]
     env_file:
       - .env
-    command: >
-      --smp 2
-      --memory 2G
-      --overprovisioned 1
-      --developer-mode 1
-
-  nosql-monitor:
-    container_name: nest-main-nosql-monitor
-    image: scylladb/scylla-manager
-    ports:
-      - "5080:5080"   # Manager API
     depends_on:
       - main-nosql
-    volumes:
-      - scylla-manager:/var/lib/scylla-manager
-    networks:
-      - backend-network
-    env_file:
-      - .env
-
-  nosql-manager-agent:
-    image: scylladb/scylla-manager-agent
-    container_name: nest-nosql-monitor-agent
-    depends_on:
-      - main-nosql
-    command: >
-      --manager-api=http://nosql-manager:5080
-      --scylla-api=http://main-nosql:10000
-    volumes:
-      - scylla-manager-agent:/var/lib/scylla-manager-agent
+    restart: unless-stopped
     networks:
       - backend-network
   
+  main-nosql-3:
+    image: cassandra:4.1
+    container_name: nest-main-nosql-instance-3
+    hostname: nest-main-nosql-instance-3
+    volumes:
+      - cassandra_data_3:/var/lib/cassandra
+      - ./init-cassandra-config.sh:/init-cassandra-config.sh
+    entrypoint: ["/bin/bash", "/init-cassandra-config.sh"]
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - main-nosql
+    networks:
+      - backend-network
+
   datastax-studio:
     image: datastax/dse-studio
     container_name: nosql-studio
@@ -58,7 +60,7 @@ services:
     image: grafana/grafana:latest
     container_name: grafana-management-panel
     ports:
-      - "8888:3000"
+      - "4545:3000"
     volumes:
       - grafana-data:/var/lib/grafana
     networks:
@@ -80,29 +82,29 @@ networks:
     driver: bridge
 
 volumes:
-  scylla-data:
+  cassandra_data:
     driver: local
     driver_opts:
       type: none
-      device: ${PWD}/docker/scylla-data
+      device: ${PWD}/docker/cassandra-data
+      o: bind
+  cassandra_data_2:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/cassandra-data-2
+      o: bind
+  cassandra_data_3:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/cassandra-data-3
       o: bind
   pgdata:
     driver: local
     driver_opts:
       type: none
       device: ${PWD}/docker/pgdata
-      o: bind
-  scylla-manager:
-    driver: local
-    driver_opts:
-      type: none
-      device: ${PWD}/docker/scylla-manager
-      o: bind
-  scylla-manager-agent:
-    driver: local
-    driver_opts:
-      type: none
-      device: ${PWD}/docker/scylla-manager-agent
       o: bind
   grafana-data:
     driver: local
