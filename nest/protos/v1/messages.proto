@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "general.proto";
+import "users.proto";
+package v1.messages;
+
+service MessagesService{
+    rpc GetMessage (v1.general.Empty) returns (stream MessagesResponse);
+    rpc GetOneMessage (GetMessageDto) returns (MessageResponse);
+    rpc GetSomeMessages (GetMessageDto) returns (stream MessageResponse);
+    rpc SendMessage (SendMessageDto) returns (MessageResponse);
+    rpc RemoveMessage (RemoveMessageDto) returns (MessageResponse);
+    rpc UpdateMessage (UpdateMessageDto) returns (MessageResponse);
+}
+message UpdateMessageDto{
+    uint64 id = 1;
+    optional string content = 4;
+}
+message RemoveMessageDto{
+    optional uint64 id = 1;
+    optional uint64 sender_id = 2;
+    optional uint64 receiver_id = 3;
+    optional string content = 4;
+    optional string created_at = 5;
+}
+message SendMessageDto{
+    uint64 sender_id = 1;
+    uint64 receiver_id = 2;
+    string content = 3;
+}
+message GetMessageDto{
+    optional uint64 id = 1;
+    optional uint64 sender_id = 2;
+    optional uint64 receiver_id = 3;
+    optional string content = 4;
+    optional string created_at = 5;
+    optional string viewer_id = 6;
+    optional string viewed_at = 7;
+}
+message MessageResponse{
+    string status = 1;
+    Message result = 2;
+    optional string message = 3;
+}
+message MessagesResponse{
+    string status = 1;
+    Messages result = 2;
+    optional string message = 3;
+}
+message Messages{
+    repeated Message messages = 1;
+}
+message Message{
+    uint64 id = 1;
+    uint64 sender_id = 2;
+    uint64 receiver_id = 3;
+    string content = 4;
+    string created_at = 5;
+    Viewers viewers = 6;
+}
+message Viewers{
+    repeated Viewer viewers = 1;
+}
+message Viewer{
+    v1.users.User user = 1;
+    string viewed_at = 2;
+}

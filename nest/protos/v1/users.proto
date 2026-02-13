@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "general.proto";
+package v1.users;
+
+service UsersService{
+    rpc GetUsers (v1.general.Empty) returns (stream UsersResponse){};
+    rpc GetUserById (GetUserByIdDto) returns (UserResponse){};
+    rpc GetSomeUsersByIds (GetSomeUsersByIdsDto) returns (stream UsersResponse){};
+    rpc GetSomeUsersByUsername (GetSomeUsersByUsernameDto) returns (stream UsersResponse){};
+    rpc CreateUser (User) returns (UserResponse){};
+    rpc UpdateUser (User) returns (UserResponse){};
+    rpc DeleteUserById (DeleteUserByIdDto) returns (DeleteResponse){};
+}
+
+message DeleteResponse{
+    string status = 1;
+    bool result = 2;
+    optional string message = 3;
+}
+message DeleteUserByIdDto{
+    uint64 id = 1;
+}
+message GetUserByIdDto{
+    uint64 id = 1;
+}
+message GetSomeUsersByIdsDto{
+    repeated uint64 ids = 1;
+}
+message GetSomeUsersByUsernameDto{
+    string username = 1;
+}
+message UsersResponse{
+    string status = 1;
+    Users result = 2;
+    optional string message = 3;
+}
+message Users{
+    repeated User users = 1;
+}
+message UserResponse{
+    string status = 1;
+    User result = 2;
+    optional string message = 3;
+}
+message User{
+    uint64 id = 1;
+}

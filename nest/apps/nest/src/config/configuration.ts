@@ -22,4 +22,7 @@ export default () => ({
   grpc: {
     url: process.env.GRPC_URL || 'localhost:50051',
   },
+  origins:{
+    frontend: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
+  }
 });
