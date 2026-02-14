@@ -8,6 +8,9 @@ export default () => ({
       user: process.env.POSTGRES_USER || "username",
       password: process.env.POSTGRES_PASSWORD || "password",
       port: parseInt(process.env.PSQL_PORT ?? "5432", 10) || 5432,
+      url: () => {
+        return `postgresql://${process.env.POSTGRES_USER || "username"}:${process.env.POSTGRES_PASSWORD || "password"}@${process.env.PSQL_HOST || "127.0.0.1"}:${process.env.PSQL_PORT || "5432"}/${process.env.POSTGRES_DB || "database"}`
+      }
     },
     nosql: {
       cassandra: {

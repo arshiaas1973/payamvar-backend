@@ -1,4 +1,4 @@
-export * from './general.ts';
-export * from './messages.ts';
-export { protobufPackage } from './messages.ts';
-export * from './users.ts';
+export * from './general';
+export * from './messages';
+export { protobufPackage } from './messages';
+export * from './users';

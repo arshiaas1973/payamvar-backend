@@ -2,8 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": false,
-    "outDir": "../../dist/apps/nest"
+    "outDir": "../../dist/apps/nest",
+    "strict": true
   },
-  "include": ["src/**/*"],
+  "include": ["**/*.ts","*.ts"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }

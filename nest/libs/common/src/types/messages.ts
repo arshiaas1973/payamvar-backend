@@ -7,8 +7,8 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { Empty } from "./general.ts";
-import { User } from "./users.ts";
+import { Empty } from "./general";
+import { User } from "./users";
 
 export const protobufPackage = "v1.messages";
 

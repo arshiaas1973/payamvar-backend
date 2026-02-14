@@ -1,35 +1,34 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { MessagesService } from './messages.service';
-import { CreateMessageDto } from './dto/create-message.dto';
-import { UpdateMessageDto } from './dto/update-message.dto';
-
+import { Observable } from 'rxjs';
+import {
+  Empty, GetMessageDto, MessageResponse, MessagesResponse,
+  MessagesServiceController, MessagesServiceControllerMethods, RemoveMessageDto, SendMessageDto,
+  UpdateMessageDto,
+} from '@/libs/common';
 @Controller()
-export class MessagesController {
-  constructor(private readonly messagesService: MessagesService) {}
+@MessagesServiceControllerMethods()
+export class MessagesController implements MessagesServiceController {
+  constructor(private readonly messagesService: MessagesService) { }
 
-  @MessagePattern('createMessage')
-  create(@Payload() createMessageDto: CreateMessageDto) {
-    return this.messagesService.create(createMessageDto);
+  getMessage(request: Empty): Observable<MessagesResponse> {
+    throw new Error('Method not implemented.');
+  }
+  getOneMessage(request: GetMessageDto): Promise<MessageResponse> | Observable<MessageResponse> | MessageResponse {
+    throw new Error('Method not implemented.');
+  }
+  getSomeMessages(request: GetMessageDto): Observable<MessageResponse> {
+    throw new Error('Method not implemented.');
+  }
+  sendMessage(request: SendMessageDto): Promise<MessageResponse> | Observable<MessageResponse> | MessageResponse {
+    throw new Error('Method not implemented.');
+  }
+  removeMessage(request: RemoveMessageDto): Promise<MessageResponse> | Observable<MessageResponse> | MessageResponse {
+    throw new Error('Method not implemented.');
+  }
+  updateMessage(request: UpdateMessageDto): Promise<MessageResponse> | Observable<MessageResponse> | MessageResponse {
+    throw new Error('Method not implemented.');
   }
 
-  @MessagePattern('getMessage')
-  findAll() {
-    return this.messagesService.findAll();
-  }
-
-  @MessagePattern('findOneMessage')
-  findOne(@Payload() id: number) {
-    return this.messagesService.findOne(id);
-  }
-
-  @MessagePattern('updateMessage')
-  update(@Payload() updateMessageDto: UpdateMessageDto) {
-    return this.messagesService.update(updateMessageDto.id, updateMessageDto);
-  }
-
-  @MessagePattern('removeMessage')
-  remove(@Payload() id: number) {
-    return this.messagesService.remove(id);
-  }
 }

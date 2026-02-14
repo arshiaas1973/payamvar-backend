@@ -2,7 +2,34 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": false,
-    "outDir": "../../dist/apps/grpc"
+    "outDir": "../../dist/apps/grpc",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*":[
+        "../../"
+      ],
+      "@app/common":[
+        "../../libs/common/src"
+      ],
+      "@app/common/*":[
+        "../../libs/common/src/*"
+      ],
+      "@/*": [
+        "../../*"
+      ],
+      "@/libs/common": [
+        "../../libs/common/src"
+      ],
+      "@/libs/common/*": [
+        "../../libs/common/src/*"
+      ],
+      "@/prisma": [
+        "../../prisma"
+      ],
+      "@/prisma/*": [
+        "../../prisma/*"
+      ]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
