@@ -5,3 +5,4 @@ psql
 certs
 !.env.example
 target
+**/docker/*
