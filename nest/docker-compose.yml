@@ -61,25 +61,27 @@ services:
     networks:
       - backend-network
 
-  datastax-studio:
-    image: datastax/dse-studio
-    container_name: nosql-studio
-    ports:
-      - "9091:9091"
-    environment:
-      - DS_LICENSE=accept
-    networks:
-      - backend-network
-
-  grafana-management-panel:
-    image: grafana/grafana:latest
-    container_name: grafana-management-panel
+  metabase-panel:
+    image: metabase/metabase:latest
+    container_name: metabase-panel
     ports:
       - "4545:3000"
-    volumes:
-      - grafana-data:/var/lib/grafana
     networks:
       - backend-network
+  trino:
+      image: trinodb/trino:451
+      container_name: trino
+      depends_on:
+        - main-nosql
+      ports:
+        - "8080:8080"
+      volumes:
+        - trino_data:/var/trino
+        - trino_etc:/etc/trino
+        - ./trino-init:/trino-init:ro
+      entrypoint: [ "/bin/sh", "-c", "mkdir -p /var/trino && chown -R 1000:1000 /var/trino" ]
+      networks:
+        - backend-network
 
 networks:
   backend-network:
@@ -116,9 +118,15 @@ volumes:
       type: none
       device: ${PWD}/docker/grafana-data
       o: bind
-  # prometheus-data:
-  #   driver: local
-  #   driver_opts:
-  #     type: none
-  #     device: ${PWD}/docker/prometheus-data
-  #     o: bind
+  trino_etc:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/trino_etc
+      o: bind
+  trino_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/docker/trino_data
+      o: bind

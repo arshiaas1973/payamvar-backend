@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { SendMessageDto, UpdateMessageDto, } from '@/libs/common';
+import { SendMessageDto, UpdateMessageDto, MessagesResponse } from '@/libs/common';
 import { PrismaService } from '@/prisma/prisma.service';
+
 
 @Injectable()
 export class MessagesService {
@@ -10,8 +11,13 @@ export class MessagesService {
     return 'This action adds a new message';
   }
 
-  findAll() {
-    return `This action returns all messages`;
+  async findAll(): Promise<MessagesResponse> {
+    return {
+      pageInfo: undefined,
+      status: "success",
+      result: undefined,
+      message: "test"
+    };
   }
 
   findOne(id: number) {

@@ -3,3 +3,12 @@ syntax = "proto3";
 package v1.general;
 
 message Empty{}
+
+message PageInfo {
+  uint32 page = 1;
+  uint32 page_size = 2;
+  uint32 total_pages = 3;
+  uint64 total_items = 4;
+  string next_cursor = 5;
+  bool has_more = 6;
+}

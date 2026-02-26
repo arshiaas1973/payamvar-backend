@@ -46,6 +46,7 @@ message MessagesResponse{
     string status = 1;
     Messages result = 2;
     optional string message = 3;
+    v1.general.PageInfo page_info = 4;
 }
 message Messages{
     repeated Message messages = 1;
